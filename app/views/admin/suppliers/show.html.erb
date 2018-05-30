@@ -1,0 +1,25 @@
+<section class="content">
+  <div class="box box-primary">
+    <div class="box box-body">
+      
+    </div>
+  </div>
+</section>
+
+<p>
+  <strong>Name:</strong>
+  <%= @supplier.name %>
+</p>
+
+<p>
+  <strong>Telephone:</strong>
+  <%= @supplier.Telephone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @supplier.email %>
+</p>
+
+<%= link_to 'Edit', edit_supplier_path(@supplier) %> |
+<%= link_to 'Back', suppliers_path %>

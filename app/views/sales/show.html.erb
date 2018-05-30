@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+<section class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2">
+        <strong>Customer Name:</strong>
+      </div>
+      <div class="col-sm-10">
+        <%= @sale.name %>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-sm-2">
+        <strong>Pay type:</strong>
+      </div>
+      <div class="col-sm-10">
+        <%= @sale.pay_type %>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-sm-2">
+        <strong>Pay amount:</strong>
+      </div>
+      <div class="col-sm-10">
+        <%= @sale.pay_amount %>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-sm-2">
+        <strong>Balance:</strong>
+      </div>
+      <div class="col-sm-10">
+        <%= @sale.balance %>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-sm-2">
+        <strong>Transaction Date:</strong>
+      </div>
+      <div class="col-sm-10">
+        <%= @sale.created_at.strftime('%d %b %Y') %>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-sm-2">
+        <strong>Transaction Time:</strong>
+      </div>
+      <div class="col-sm-10">
+        <%= @sale.created_at.strftime('%T') %>
+      </div>
+    </div>
+    <br>
+    <br>
+
+    <div class="container">
+      <div class="col-sm-10 col-md-10">
+          <%= render 'sale_items' %>
+      </div>
+    </div>
+
+    <%= link_to 'Complete', root_url, class: 'btn btn-primary btn-sm' %>
+    <%= link_to 'Printable receipt (PDF)', sale_url(@sale, format: 'pdf'), class: 'btn btn-success btn-sm' %>
+    </p>
+  </div>
+</section>

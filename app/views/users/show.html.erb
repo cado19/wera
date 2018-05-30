@@ -1,0 +1,23 @@
+<h1 align="center">
+	<%= image_tag @user.avatar.url(:medium), class: "img-rounded img-responive"%>
+	<%= @user.name %>
+	<hr>
+</h1>
+
+<div class="container">
+	<p>
+		Email: <%= @user.email %>
+	</p>
+
+	<p>
+		Role: <%= @user.role.name %>
+	</p>
+	
+	<p>
+		Sale count: <%= @user.sales.count %>
+	</p>
+
+	<p>
+		Joined on <%= @user.created_at.strftime('%d %b %Y') %>
+	</p>
+</div>

@@ -1,0 +1,29 @@
+<% title "Ziada | Categories - #{@category.name}" %>
+<div class="container">
+	<p>
+	  <strong>Name:</strong>
+	  <%= @category.name %>
+	</p>
+	<h3 align="center">Products in this category</h3>
+	<div class="container">
+		<table class="table table-responsive ">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Selling Price</th>
+					<th>Quantity</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @category.products.each do |product| %>
+					<tr>
+						<td><%= link_to product.name, product %></td>
+						<td><%= product.selling_price %></td>
+						<td><%= product.quantity %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<%= link_to 'Back', categories_url, class: 'btn btn-primary'  %>
+</div>

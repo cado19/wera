@@ -1,0 +1,12 @@
+{
+  "name": "wera",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "^3.5.3",
+    "jquery": "^3.3.1",
+    "yarn": "^1.6.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
+}

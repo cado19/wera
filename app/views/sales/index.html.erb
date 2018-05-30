@@ -1,0 +1,26 @@
+<h3 align="center">Sales</h3>
+<div class="container">
+	<table class="table table-responsive">
+		<thead>
+			<tr>
+				<th>Name</th>				
+				<th>Total Price</th>
+				<th>Pay Amount</th>
+				<th>Pay Type</th>
+				<th>Time</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @sales.each do |sale| %>
+				<tr>
+					<td><%= link_to sale.name, sale %></td>
+					<td><%= sale.total_price %></td>
+					<td><%= sale.pay_type %></td>
+					<td><%= sale.pay_amount %></td>
+					<td><%= sale.balance%></td>
+					<td><%= sale.created_at %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table> <!-- /Table -->
+</div> <!-- /container -->

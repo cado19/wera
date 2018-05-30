@@ -1,0 +1,19 @@
+<table class="table table-responsive table-condensed">
+  <thead>
+    <tr>
+      <td><b>Qty</b></td>
+      <td><b>Product</b></td>
+      <td><b>Total Price</b></td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sale.sale_items.each do |item| %>
+      <tr>
+          <td><%= item.quantity %></td>
+          <td><%= item.product.name %></td>
+          <td><%= "#{item.quantity * item.product.selling_price}" %>/-</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

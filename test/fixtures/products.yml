@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  name: MyString
+  selling_price: 9.99
+  purchase_price: 9.99
+  quantity: 1
+  category: one
+  account: one
+
+two:
+  code: MyString
+  name: MyString
+  selling_price: 9.99
+  purchase_price: 9.99
+  quantity: 1
+  category: two
+  account: two

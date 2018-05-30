@@ -1,0 +1,43 @@
+<% title "Ziada | Products - #{@product.name}" %>
+<section>
+  <h3 align="center"><%= @product.name %></h3>
+</section>
+
+<section class="content">
+  <div class="box box-primary">
+    <div class="box box-body">
+      <div class="container">
+          <div class="row">
+            <p>
+              <strong>Name:</strong>
+              <%= @product.name %>
+            </p>
+
+            <p>
+              <strong>Purchase price:</strong>
+              <%= @product.purchase_price %>
+            </p>
+
+            <p>
+              <strong>Selling price:</strong>
+              <%= @product.selling_price %>
+            </p>
+
+            <p>
+              <strong>Manufacturer:</strong>
+              <%= @product.manufacturer %>
+            </p>
+
+            <p>
+              <strong>Category:</strong>
+              <%= @product.category.name %>
+            </p>
+          </div>
+        <br>
+          <%= link_to 'Back', admin_products_path, class: 'btn btn-default btn-sm' %> |
+          <%= link_to 'Edit', edit_admin_product_path(@product), class: 'btn btn-default btn-sm' %> |
+          <%= link_to 'Destroy', admin_product_url(@product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,127 @@
+<p id="notice"><%= notice %></p>
+<section class="content">
+  <div class="box box-primary">
+    <div class="box box-body">
+      <div class="container">
+        <div class="row"> <%# Sale Code %>
+          <div class="col-sm-2">
+            <strong>Code:</strong>
+          </div>
+          <div class="col-sm-10">
+            <%= @sale.code %>
+          </div>
+        </div>
+        <br>
+
+        <div class="row"> <%# Sale Name %>
+          <div class="col-sm-2">
+            <strong>Customer:</strong>
+          </div>
+          <div class="col-sm-10">
+            <%= @sale.name %>
+          </div>
+        </div>
+        <br>
+
+        <div class="row"> <%# Sale Customer %>
+          <div class="col-sm-2">
+            <strong>Served By:</strong>
+          </div>
+          <div class="col-sm-10">
+            <%= @sale.user.name %>
+          </div>
+        </div>
+        <br>
+
+        <div class="row"> <%# Sale Total Price %>
+          <div class="col-sm-2">
+            <strong>Total:</strong>
+          </div>
+          <div class="col-sm-10">
+            <%= @sale.total_price %>
+          </div>
+        </div>
+        <br>
+
+        <div class="row"> <%# Sale Payment Type %>
+          <div class="col-sm-2">
+            <strong>Pay type:</strong>
+          </div>
+          <div class="col-sm-10">
+            <%= @sale.pay_type %>
+          </div>
+        </div>
+        <br>
+
+        <div class="row"> <%# Sale Payment Amount %>
+          <div class="col-sm-2">
+            <strong>Pay amount:</strong>
+          </div>
+          <div class="col-sm-10">
+            <%= @sale.pay_amount %>
+          </div>
+        </div>
+        <br>
+
+        <div class="row"> <%# Sale Balance %>
+          <div class="col-sm-2">
+            <strong>Balance:</strong>
+          </div>
+          <div class="col-sm-10">
+            <%= @sale.balance %>
+          </div>
+        </div>
+        <br>
+
+        <div class="row"> <%# Sale Date %>
+          <div class="col-sm-2">
+            <strong>Transaction Date:</strong>
+          </div>
+          <div class="col-sm-10">
+            <%= @sale.created_at.strftime('%d %b %Y') %>
+          </div>
+        </div>
+        <br>
+
+        <div class="row"> <%# Sale Time %>
+          <div class="col-sm-2">
+            <strong>Transaction Time:</strong>
+          </div>
+          <div class="col-sm-10">
+            <%= @sale.created_at.strftime('%T') %>
+          </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="container">
+          <div class="col-sm-10 col-md-10">
+              <table class="table table-responsive table-condensed table-striped">
+                <thead>
+                  <tr>
+                    <td><b>Qty</b></td>
+                    <td><b>Product</b></td>
+                    <td><b>Total Price</b></td>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @sale.sale_items.each do |item| %>
+                    <tr>
+                        <td><%= item.quantity %></td>
+                        <td><%= item.product.name %></td>
+                        <td><%= "#{item.quantity * item.product.selling_price}" %>/-</td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+          </div>
+        </div>
+          <%= link_to 'Back', admin_sales_url, class: 'btn btn-primary btn-sm' %> |
+          <%= link_to 'Printable receipt (PDF)', admin_sale_url(@sale, format: 'pdf'), class: 'btn btn-success btn-sm' %>
+          <%= link_to 'Delete', admin_sale_url(@sale), method: :delete, data: {confirm: 'Are You Sure?'}, class: 'btn btn-danger btn-sm' %>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

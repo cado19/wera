@@ -1,0 +1,142 @@
+<h3>Admin DashBoard</h3>
+
+<div class="row">
+  <% #Sales Info-Box %>
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-green">
+        <i class="fa fa-cart-arrow-down"></i>
+      </span>
+      <div class="info-box-content">
+        <span class="info-box-text">Number Of Sales</span>
+        <span class="info-box-number"><%= "#{number_of_sales}" %></span>
+      </div>
+    </div>
+  </div>
+  <% #Products info-box %>
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-aqua">
+        <i class="fa fa-cubes"></i>
+      </span>
+      <div class="info-box-content">
+        <span class="info-box-text">Number Of Products</span>
+        <span class="info-box-number"><%= "#{number_of_products}" %></span>
+      </div>
+    </div>
+  </div>
+  <% #Purchases info-box %>
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-red">
+        <i class="fa fa-credit-card-alt"></i>
+      </span>
+      <div class="info-box-content">
+        <span class="info-box-text">Number Of Purchases</span>
+        <span class="info-box-number"><%= "#{number_of_purchases}" %></span>
+      </div>
+    </div>
+  </div>
+
+<% #Users info-box %>
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-yellow">
+        <i class="fa fa-users"></i>
+      </span>
+      <div class="info-box-content">
+        <span class="info-box-text">Number of Users</span>
+        <span class="info-box-number"><%= "#{number_of_users}" %></span>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<% #Recent Sales %>
+<div class="row">
+  <section class="content">
+    <div class="box box-body">
+      <div class="box box-primary">
+        <h2>Latest Sales</h2>
+        <table class="table table-responsive table-condensed">
+          <thead>
+            <th>Transaction Code</th>
+            <th>Teller</th>
+            <th>Transaction Time</th>
+            <th>Total Price</th>
+            <th>Amount Paid</th>
+            <th>Balance</th>
+          </thead>
+          <tbody>
+            <% @sales.each do |sale| %>
+              <tr>
+                <td><%= sale.code %></td>
+                <td><%= sale.user.name %></td>
+                <td><%= sale.created_at.strftime("%T") %></td>
+                <td><%= sale.total %></td>
+                <td><%= sale.pay_amount %></td>
+                <td><%= sale.balance %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="pull-right">
+          <%= link_to 'All Sales', admin_sales_url %>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<%# Recent Purchases %>
+<div class="row">
+  <section class="content">
+    <div class="box box-body">
+      <div class="box box-primary">
+        <h2>Latest Purchases</h2>
+        <table class="table table-responsive table-condensed">
+          <thead>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Transaction Time</th>
+            <th>Total Price</th>
+          </thead>
+          <tbody>
+            <% @purchases.each do |purchase| %>
+              <tr>
+                <td><%= purchase.product.name %></td>
+                <td><%= purchase.quantity %></td>
+                <td><%= purchase.created_at.strftime("%T") %></td>
+                <td><%= purchase.total_price %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="pull-right">
+          <%= link_to 'All Purchases', admin_purchases_url %>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<%# Highest Selling Products %>
+<div class="row">
+  <section class="content">
+    <div class="box box-body">
+      <div class="box box-primary">
+        <h2>Latest Purchases</h2>
+        <table class="table table-responsive  table-condensed">
+          <thead>
+            <th>Product</th>
+            <th>Quantity</th>
+          </thead>
+          <tbody>
+            <%= @items %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+<br>

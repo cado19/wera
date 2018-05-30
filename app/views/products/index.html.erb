@@ -1,0 +1,91 @@
+<h3 align="center">Products</h3>
+<div class="pull-right">
+	<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">
+		<i class="fa fa-search"></i> Search Product
+	</button>
+</div>
+
+<div class="container">
+	<table class="table table-responsive">
+		<thead>
+			<tr>
+				<th><%= sort_link(@search, :name) %></th>
+				<th><%= sort_link(@search, :category) %></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% cache @products do %>
+			 <% @products.each do |product| %>
+			  <% cache product do %>
+					<tr>
+						<td>
+							<%= link_to product.name, product %><br>
+							<% if product.quantity > 0 %>
+				              <small><em><b>Stock Amount: </b></em><%= product.quantity %></small>
+				            <% else %>
+				              <small><em><b>Stock Amount: </b></em>Out of Stock</small>
+				            <% end %>
+						</td>
+						<td><%= product.category.name %></td>
+						<td><%= button_to "Add To Cart", sale_items_path(product_id: product) , class: "btn btn-sm btn-success" %>
+							<small><b>Cost: </b><%= product.selling_price %></small>
+						</td>
+					</tr>
+			  <% end %>
+			 <% end %>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+<%= will_paginate @products %>
+<!-- Modal for Search -->
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 class="modal-title">Search Product</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div> <!-- /.modal-header -->
+
+			<!-- Modal Body -->
+			<div class="modal-body">
+				<div class="row">
+					<div class="container">
+						<%= search_form_for @search do |f| %>
+							<p>
+								<%= f.label :name_cont, "Name" %>
+								<%= f.text_field :name_cont %><br>
+							</p>
+
+							<p>
+								<%= f.label :selling_price_gteq, "Price Range" %>
+								<%= f.text_field :selling_price_gteq %>
+								<%= f.label :selling_price_lteq, "and" %>
+								<%= f.text_field :selling_price_lteq %><br>
+							</p>
+							<p>
+								<%= f.label :category_name_cont, "Category" %>
+								<%= f.text_field :category_name_cont %>
+							</p>
+							<p>
+		            <%= f.label :stockable_eq, "Stock Product"%>
+                <%= f.select :stockable_eq, options_for_select([['Yes',true],['No', false]]), include_blank: true,
+                 placeholder: 'Stock Product?' %>
+              </p>
+							<p>
+								<%= f.submit class: 'btn btn-info' %>
+							</p>
+						<% end %>
+					</div>
+				</div>
+			</div><!-- /.modal-body -->
+			<div class="modal-footer">
+		      <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+		    </div>
+		</div><!-- -->
+	</div>
+</div><!-- -->

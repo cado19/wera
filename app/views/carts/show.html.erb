@@ -1,0 +1,36 @@
+<h4 align="center">Cart</h4>
+
+  <div class="container">
+    <% if (@cart.sale_items.size < 1) %>
+      <p>There are no items in cart kindly go back to add some</p>
+    <% else %>
+      <table class="table table-responsive">
+        <thead>
+          <tr>
+            <th>Qty</th>
+            <th>Product</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart.sale_items.each do |item| %>
+            <tr>
+              <td><%= item.quantity %></td>
+              <td><%= item.product.name %></td>
+              <td><%= item.total_price %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <hr>
+      <br>
+      <div class="col-md-offset-7 col-md-4">
+        <strong>Total:</strong> <%= @cart.total_price %>
+      </div>
+      <br>
+
+      <%= button_to "Empty Cart", @cart, method: :delete, data: {confirm: "Are You Sure?"}, class: "btn btn-danger" %> <br>
+      <%= button_to "Checkout", new_sale_url, method: :get, class: "btn btn-primary" %> 
+      <% end %>      
+
+  </div> <!-- /.container -->

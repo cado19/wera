@@ -1,0 +1,62 @@
+<% title "Ziada | Purchases " %>
+<div class="container">
+  <section class="content-header">
+    <h3>Purchase For: <b><i><%= @purchase.product.name %></i></b></h3>
+  </section>
+
+<section class="content">
+  <div class="box box-primary">
+    <div class="box box-body">
+      <div class="row">
+          <div class="col-sm-2 col-md-2">
+            <h4>Quantity: </h4>
+          </div>
+          <div class="col-sm-10 col-md-10">
+            <h4><%= @purchase.quantity %></h4>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-sm-2 col-md-2">
+            <h4>Purchase price</h4>
+          </div>
+          <div class="col-sm-10 col-md-10">
+            <h4><%= @purchase.product.purchase_price %>/-</h4>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-sm-2 col-md-2">
+            <h4>Total Spent: </h4>
+          </div>
+          <div class="col-sm-10 col-md-10">
+            <h4><%= @purchase.total_price %>/-</h4>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-sm-2 col-md-2">
+            <h4>Purchased On: </h4>
+          </div>
+          <div class="col-sm-10 col-md-10">
+            <h4><%= @purchase.created_at.strftime('%B, %Y, %d') %></h4>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-sm-2 col-md-2">
+            <h4>Purchased At: </h4>
+          </div>
+          <div class="col-sm-10 col-md-10">
+            <h4><%= @purchase.created_at.strftime('%T') %></h4>
+          </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <%= link_to 'Back', admin_purchases_url, class: 'btn btn-default btn-sm' %>
+          <%= link_to 'Destroy', admin_purchase_url(@purchase), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>

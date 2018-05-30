@@ -1,0 +1,80 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$backgroundColour: #EEE2DC;
+$headerColour: #AC3B61;
+$headerColourSecondary: #BAB2B5;
+$accentColour: #CAEBF2;
+$textColour: #123C69;
+$white: #fff;
+$black: #000;
+$height: 750px;
+
+.logo-area {
+  text-align: center;
+  padding: 35px 0 20px 0;
+  .ziada-logo {
+      font-family: 'Shadows Into Light Two', cursive;
+      font-size: 60px;
+      color: $headerColour;
+  }
+}
+
+
+#welcome-navigation{
+  margin-bottom: 70px;
+  .fa{
+    font-size: 20px;
+  }
+
+  a{
+    font-size: 20px;
+    font-style: oblique;
+  }
+}
+
+#showcase{
+	background-color: $backgroundColour;
+  background: image-url('Moss.jpg');
+	height: $height;
+	h1, h2, h3, h4, h5{
+		color: $white;
+	}
+  p{
+    color: $textColour;
+  }
+  #hook{
+    margin-top: 100px;
+    height: 200px;
+  }
+}
+
+#about{
+  height: $height;
+  line-height: 2em;
+  p{
+    color: $textColour;
+    font-size: 22px;
+  }
+}
+
+#features{
+  height: $height;
+  .fa{
+    font-size: $icon-size;
+  }
+  .feature-header{
+    font-weight: bold;
+  }
+}
+
+.btn-welcome{
+  color: $white;
+  //border: 1px solid $black;
+  background-color: $textColour;
+  &:hover{
+    opacity: 0.5;
+    //background-color: lighten($textColour, 10%);
+    border-color: $black;
+  }
+}

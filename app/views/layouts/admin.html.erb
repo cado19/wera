@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Ziada" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    
+  </head>
+
+  <body class="skin-blue sidebar-mini" style="height: auto; min-height: 100%;">
+    <div class="wrapper" style="height: auto; min-height: 100%;">
+       <!-- Navbar -->
+      <%= render 'layouts/admin_navigation' %>
+
+      <!-- Side Bar -->
+      <%= render 'layouts/admin_sidebar' %>
+
+
+      <div class="content-wrapper" style="min-height: 929.773px">
+        <div class="container-fluid">
+          <%= render 'layouts/flash' %>
+          <div class="container-fluid">
+            <div class="pull-right">
+              <div id="biz-info">
+                <%= current_account.name %> 
+              </div>
+            </div>      
+          </div><br>
+          <%= yield %>
+        </div>
+      </div>
+        
+    </div>   
+  </body>
+</html>

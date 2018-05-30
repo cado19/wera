@@ -1,0 +1,23 @@
+<% title "Ziada | Categories - New" %>
+
+<section class="content-header">
+	<h3 align="center">New Category</h3>
+</section>
+
+<h3 align="center">New Category</h3>
+<section class="content">
+	<div class="box box-primary">
+		<div class="box-body">
+			<ul class="nav nav-tabs" role="tablist">
+			  <li><%= link_to 'View Category', admin_categories_url %></li>
+			  <li class="active"><%= link_to 'New Category', new_admin_category_url %></li>
+			</ul><br>
+			<div class="panel panel-primary">
+
+				<div class="panel-body">
+					<%= render 'form' %>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

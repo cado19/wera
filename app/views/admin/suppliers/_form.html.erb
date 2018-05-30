@@ -1,0 +1,32 @@
+<%= form_for [:admin, @supplier] do |form| %>
+  <% if supplier.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(supplier.errors.count, "error") %> prohibited this supplier from being saved:</h2>
+
+      <ul>
+      <% supplier.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :supplier_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Telephone %>
+    <%= form.text_field :Telephone, id: :supplier_Telephone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :supplier_email %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

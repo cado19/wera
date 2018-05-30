@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Ziada" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <%= render 'layouts/navigation' %>
+
+    <div class="container-fluid">
+      <div class="pull-right">
+        <div id="biz-info">
+          <%= current_account.name %> 
+        </div>
+      </div>      
+    </div><br>
+
+    <!-- Cart Link -->
+    <div class="cart-text">
+      <% if @cart %>
+        <%= render 'layouts/cart_text' %>
+        <hr>
+      <% end %>
+    </div>
+
+
+    <div class="container">
+      <div class="col-sm-12 col-md-12">
+        <%= render 'layouts/flash' %>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
+  </body>
+</html>

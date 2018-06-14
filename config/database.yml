@@ -76,8 +76,15 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
+staging:
+  <<: *default
+  database: wera_staging
+  username: root
+  password: <%= ENV['WERA_DATABASE_PASSWORD'] %>
+
 production:
   <<: *default
   database: wera_production
-  username: richie
+  username: root
   password: <%= ENV['WERA_DATABASE_PASSWORD'] %>

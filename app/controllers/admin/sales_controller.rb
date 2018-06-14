@@ -5,7 +5,7 @@ class Admin::SalesController < Admin::BaseController
 
   def index
     @search = Sale.ransack(params[:q])
-    @sales = @search.result.paginate(:page => params[:page])
+    @sales = @search.result.order("created_at desc").paginate(:page => params[:page])
   end
 
   def show

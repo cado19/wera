@@ -1,0 +1,27 @@
+<div class="container">
+	<p>Name: <%= @account.name %></p>
+	<p>Country: <%= @account.country %></p>
+	<p>Subdomain: <%= @account.subdomain %></p>
+
+	<div class="row">
+		<div class="container">
+			<h3 align="center">Users in this account</h3>
+			<table class="table table-condensed">
+				<thead>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Role</th>
+				</thead>
+				<tbody>
+					<% @account.users.each do |user| %>
+						<tr>
+							<td><%= user.name %></td>
+							<td><%= user.email %></td>
+							<td><%= user.role.name %></td>
+						</tr>						
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

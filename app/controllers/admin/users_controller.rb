@@ -4,7 +4,7 @@ class Admin::UsersController < Admin::BaseController
 	before_action :authenticate
 	def index
 		@search = User.ransack(params[:q])
-		@users = @search.result.paginate(page: params[:page])
+		@users = @search.result.order("name desc").paginate(page: params[:page])
 	end
 
 	def show

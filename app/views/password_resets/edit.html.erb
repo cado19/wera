@@ -1,9 +1,16 @@
-<%= form_for @user, url: password_reset_url(params[:id]) do |f| %>
-	<%= f.label :password %>
-	<%= f.password_field :password %>
+<div class="col-md-6 col-md-offset-3">
+	<div class="panel">
+		<div class="panel-heading">
+			<h3 align="center">Reset Password</h3>
+		</div>
+		<div class="panel-body">
+			<%= bootstrap_form_for @user, url: password_reset_url(params[:id]) do |f| %>
+				<%= f.password_field :password, class: 'form-control' %>
 
-	<%= f.label :password_confirmation %>
-	<%= f.password_field :password_confirmation %>
+				<%= f.password_field :password_confirmation, class: 'form-control' %>
 
-	<%= f.submit "Update Password" %>
-<% end %>
+				<%= f.submit "Update Password", class: 'btn btn-primary btn-sm' %>
+			<% end %>
+		</div>
+	</div>
+</div>

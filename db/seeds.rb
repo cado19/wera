@@ -9,3 +9,5 @@
 
 
 roles = Role.create([{name: 'Owner'}, {name: 'Admin'}, {name: 'User'}])
+
+maintenance_user = MaintenanceUser.create(name: "Richie", email: "mryoungrichie@gmail.com", password: "password", password_confirmation: "password")

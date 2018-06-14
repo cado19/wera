@@ -1,0 +1,13 @@
+<%= form_for @contact do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name, placeholder: "Name", class: 'form-control' %><br>
+
+	<%= f.label :email %>
+	<%= f.text_field :email, placeholder: "Email", class: 'form-control' %><br>
+
+	<%= f.label :message %>
+	<%= f.text_area :message, class: 'form-control' %><br>
+
+	<%= f.submit "Send", class: "btn btn-sm btn-info" %>
+	<%= link_to "Cancel", welcome_home_url, class: 'btn btn-default' %>
+<% end %>

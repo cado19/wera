@@ -1,0 +1,41 @@
+.navbar{
+}
+
+.navbar-brand{
+	padding: 0;
+	height: 50px; 
+}
+
+.navbar-toggle{
+	// (70px - button height 34px) / 2 = 18px
+	//margin-top: 18px;
+	//padding: 9px 10px !important;
+}
+
+.navbar-white{
+	background: $white;
+	border-bottom: none;
+	li{
+		a:hover{
+			color: $black;
+		}
+	}
+}
+
+.navbar-nav{
+	li{
+		a:hover{
+			color: $black;
+		}
+	}
+}
+
+#nav-btn{
+	background-color: #ea4a3c;
+	color: $white;
+	border: none;
+	border-radius: 0;
+	//margin-top: 20px;
+	//line-height: 10px;
+}
+

@@ -1,4 +1,4 @@
-## This file is auto-generated from the current state of the database. Instead
+# This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180529112004) do
+ActiveRecord::Schema.define(version: 20180612130559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(version: 20180529112004) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "maintenance_users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "code"
     t.string "name"
@@ -59,10 +67,12 @@ ActiveRecord::Schema.define(version: 20180529112004) do
     t.datetime "updated_at", null: false
     t.boolean "stockable"
     t.string "manufacturer"
+    t.bigint "supplier_id"
     t.index ["account_id"], name: "index_products_on_account_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["code"], name: "index_products_on_code"
     t.index ["name"], name: "index_products_on_name"
+    t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end
 
   create_table "purchases", force: :cascade do |t|
@@ -113,6 +123,16 @@ ActiveRecord::Schema.define(version: 20180529112004) do
     t.index ["user_id"], name: "index_sales_on_user_id"
   end
 
+  create_table "suppliers", force: :cascade do |t|
+    t.string "name"
+    t.string "email", default: ""
+    t.string "telephone", default: ""
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "account_id"
+    t.index ["account_id"], name: "index_suppliers_on_account_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -135,6 +155,7 @@ ActiveRecord::Schema.define(version: 20180529112004) do
   add_foreign_key "categories", "accounts"
   add_foreign_key "products", "accounts"
   add_foreign_key "products", "categories"
+  add_foreign_key "products", "suppliers"
   add_foreign_key "purchases", "accounts"
   add_foreign_key "purchases", "products"
   add_foreign_key "purchases", "users"
@@ -144,6 +165,7 @@ ActiveRecord::Schema.define(version: 20180529112004) do
   add_foreign_key "sale_items", "sales"
   add_foreign_key "sales", "accounts"
   add_foreign_key "sales", "users"
+  add_foreign_key "suppliers", "accounts"
   add_foreign_key "users", "accounts"
   add_foreign_key "users", "roles"
 end

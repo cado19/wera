@@ -14,16 +14,20 @@ class User < ApplicationRecord
 
   default_scope { where(account_id: Account.current_id) }
 
-  def generate_token
+  def generate_token(column)
     begin
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
   end
 
-  def send_pasword_reset
-    generate_token(password_reset_token)
-    UserMailer.password_reset(self).deliver
+  def self.owner
+    where(role_id: 1)
+  end
+
+  def send_password_reset
+    generate_token(:password_reset_token)    
     self.password_reset_sent_at = Time.zone.now
     save!
+    UserMailer.password_reset(self).deliver
   end
 end

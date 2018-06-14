@@ -1,3 +1,4 @@
+<% provide(:products, "active") %>
 <h3 align="center">Products</h3>
 <div class="pull-right">
 	<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">
@@ -72,10 +73,12 @@
 								<%= f.text_field :category_name_cont %>
 							</p>
 							<p>
-		            <%= f.label :stockable_eq, "Stock Product"%>
-                <%= f.select :stockable_eq, options_for_select([['Yes',true],['No', false]]), include_blank: true,
-                 placeholder: 'Stock Product?' %>
-              </p>
+					            <%= f.label :stockable_eq, "Stock Product"%>
+				                <%= f.select :stockable_eq,
+				                             options_for_select([['Yes',true],['No', false]]),
+				                             include_blank: true,
+					                		 placeholder: 'Stock Product?' %>
+			                </p>
 							<p>
 								<%= f.submit class: 'btn btn-info' %>
 							</p>

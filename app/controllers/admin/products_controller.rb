@@ -5,7 +5,7 @@ class Admin::ProductsController < Admin::BaseController
 
   def index
     @search = Product.ransack(params[:q])
-    @products = @search.result.paginate(:page => params[:page])
+    @products = @search.result.order("name desc").paginate(:page => params[:page])
   end
 
   def show

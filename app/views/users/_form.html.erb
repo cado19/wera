@@ -1,4 +1,4 @@
-<%= form_for @user, html: {multipart: true} do |f| %>
+<%= bootstrap_form_for @user, html: {multipart: true} do |f| %>
   <div id="error-message">
    <% if @user.errors.any? %>
    	<p>Kindly rectify the following <%= pluralize(@user.errors.count, "error") %></p>
@@ -11,27 +11,22 @@
   </div>
 
  <div class = "field">
-  <%= f.label :name %>
   <%= f.text_field :name, class: 'form-control' %><br>
  </div>
 
  <div class = "field">
-  <%= f.label :email %>
   <%= f.text_field :email, class: 'form-control' %><br>
  </div>
 
  <div class = "field">
-  <%= f.label :password %>
   <%= f.password_field :password, class: 'form-control' %><br>
  </div>
 
  <div class = "field">
-  <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation, class: 'form-control' %><br>
  </div>
 
  <div class="field">
-  <%= f.label :role %>
   <%= f.collection_select(:role_id, Role.all, :id, :name)%><br>
  </div>
 
@@ -39,5 +34,5 @@
    <%= f.file_field :avatar, class: 'label-control' %>
  </div><br>
 
- <%= f.submit 'Create User', class: 'btn btn-primary form-control' %>
+ <%= f.submit 'Create User', class: 'btn btn-primary' %>
 <% end %>

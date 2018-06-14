@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   #ASSOCIATIONS
   belongs_to :category
   belongs_to :account
+  belongs_to :supplier
   has_many :sale_items
   has_many :sales, through: :sale_items
   has_many :purchases

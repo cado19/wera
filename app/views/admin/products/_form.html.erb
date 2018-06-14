@@ -1,6 +1,6 @@
 <div class="">
   <div class="col-sm-12 col-md-12">
-  <%= form_for([:admin,@product ], html: {multipart: true, class: 'form-horizontal'}) do |f| %>
+  <%= bootstrap_form_for([:admin,@product ], html: {multipart: true, class: 'form-horizontal'}) do |f| %>
     <% if @product.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -12,23 +12,19 @@
       </div>
     <% end %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %><br>
+    <%= f.text_field :name, class: 'form-control' %>
 
-    <%= f.label :purchase_price %>
-    <%= f.text_field :purchase_price, class: 'form-control' %><br>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: 'Select Category') %>
 
-    <%= f.label :selling_price %>
-    <%= f.text_field :selling_price, class: 'form-control' %><br>
+    <%= f.text_field :purchase_price, placeholder: "0.0", class: 'form-control' %>
 
-    <%= f.label :manufacturer %>
-    <%= f.text_field :manufacturer, class: 'form-control' %><br>
+    <%= f.text_field :selling_price, class: 'form-control' %>
 
-    <%= f.label :stockable, "Stock Product" %>
+    <%= f.text_field :manufacturer, class: 'form-control' %>
+
     <%= f.check_box :stockable %><br>
 
-    <%= f.label :category %>
-    <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: 'Select Category') %><br><br>
+    <%= f.collection_select(:supplier_id, Supplier.all, :id, :name, prompt: 'Select Supplier') %>   
 
     <%= f.submit 'Save', class: "btn btn-primary btn-sm" %>
     <%= link_to 'Cancel', admin_products_path, class: 'btn btn-danger btn-sm' %>

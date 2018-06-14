@@ -1,0 +1,19 @@
+<div class="container">
+	<table class="table table-responsive ">
+		<thead>
+			<th><%= sort_link(@search, :name) %></th>
+			<th><%= sort_link(@search, :subdomain) %></th>
+			<th>Country</th>
+		</thead>
+		<tbody>
+			<% @accounts.each do |account| %>
+				<tr>
+					<td><%= account.name %></td>
+					<td><%= account.subdomain %></td>
+					<td><%= account.country %></td>
+					<td><%= link_to "Details", maintenance_account_url(account), class: 'btn btn-default' %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

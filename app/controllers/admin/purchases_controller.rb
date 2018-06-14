@@ -5,7 +5,7 @@ class Admin::PurchasesController < Admin::BaseController
   before_action :find_purchase, only: [:show, :edit, :update, :destroy]
   def index
     @search = Purchase.ransack(params[:q])
-    @purchases = @search.result.paginate(:page => params[:page])
+    @purchases = @search.result.order("created_at desc").paginate(:page => params[:page])
   end
 
   def show

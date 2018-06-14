@@ -2,6 +2,8 @@ class Account < ApplicationRecord
   cattr_accessor :current_id
 
   has_many :sales
+  has_many :users
+  has_many :products
 
   validates :subdomain, presence: true,
               uniqueness: true,

@@ -1,6 +1,8 @@
-<%= form_tag password_resests_url, method: :post do %>
-	<%= label_tag :email %>
-	<%= text_field_tag :email, class: 'form-control' %>
+<div class="container">
+	<%= bootstrap_form_tag url: '/password_resets', method: :post do %>
+		<%= label_tag :email %>
+		<%= text_field_tag :email %><br>
 
-	<%= submit_tag "Reset Password", class: 'btn btn-primary' %>
-<% end %>
+		<%= submit_tag "Reset Password", class: 'btn btn-primary' %>
+	<% end %>
+</div>

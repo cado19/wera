@@ -1,4 +1,6 @@
 class ContactsController < ApplicationController
+  layout "account"
+  skip_around_action :scope_current_account
   def new
     @contact = Contact.new
   end
@@ -6,9 +8,8 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      ContactMailer.contact_created(@contact).deliver
       flash[:notice] = "Your message has been sent. Will respond as soon as possible"
-      redirect_to welcome_url
+      redirect_to welcome_home_url
     else
       render 'new'
     end

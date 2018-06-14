@@ -5,7 +5,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   def index
     @search = Category.ransack(params[:q])
-    @categories = @search.result.paginate(:page => params[:page])
+    @categories = @search.result.order("created_at desc").paginate(:page => params[:page])
   end
 
   def show

@@ -12,6 +12,7 @@ end
 
 Rails.application.routes.draw do
 
+
 ###################################### Routes for presence of subdomain/account #########################################
   ################## #Admin Routes ##################################################
 	constraints(SubdomainPresent) do   
@@ -31,6 +32,12 @@ Rails.application.routes.draw do
   		    resources :products do
             collection do
               match 'search' => 'products#search', via: [:get, :post], as: :search
+            end
+          end
+
+          resources :suppliers do
+            collection do
+              match 'search' => 'suppliers#search', via: [:get, :post], as: :search
             end
           end
   		    resources :purchases
@@ -62,9 +69,28 @@ Rails.application.routes.draw do
 
   ##################### Routes for absence of subdomain/account ######################################
     get 'welcome/home'
-    get 'welcome/about'
-    get 'welcome/features'
+    get 'welcome/policy'
     resources :contacts, only: [:new, :create]
     root 'welcome#home'
     resources :accounts, only: [:new, :create]
+    ####### Routes for maintenance sessions ###########################################################
+    get '/maintenance_login', to: 'maintenance_sessions#new'
+    post '/maintenance_login', to: 'maintenance_sessions#create'
+
+    resources :maintenance_users
+    ################### Super User Routes #############################################################
+    namespace :maintenance do
+      resources :accounts do
+        collection do
+          match 'search' => 'accounts#search', via: [:get, :post], as: :search
+        end
+      end
+
+      resources :contacts do
+        collection do
+          match 'search' => 'contacts#search', via: [:get, :post], as: :search
+        end
+      end
+      root to: 'dashboard#index'
+    end
 end

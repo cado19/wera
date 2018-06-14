@@ -9,21 +9,23 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+
+    
     
   </head>
 
   <body class="skin-blue sidebar-mini" style="height: auto; min-height: 100%;">
     <div class="wrapper" style="height: auto; min-height: 100%;">
        <!-- Navbar -->
-      <%= render 'layouts/admin_navigation' %>
+      <%= render 'layouts/shared/admin_navigation' %>
 
       <!-- Side Bar -->
-      <%= render 'layouts/admin_sidebar' %>
+      <%= render 'layouts/shared/admin_sidebar' %>
 
 
       <div class="content-wrapper" style="min-height: 929.773px">
         <div class="container-fluid">
-          <%= render 'layouts/flash' %>
+          <%= render 'layouts/shared/flash' %>
           <div class="container-fluid">
             <div class="pull-right">
               <div id="biz-info">

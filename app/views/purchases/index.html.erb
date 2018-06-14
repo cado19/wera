@@ -1,0 +1,25 @@
+<h4 align="center">Purchases Listing</h4>
+<div class="container">
+	<table class="table table-responsive">
+		<thead>
+			<tr>
+				<th><%= sort_link(@search, :product.name) %>Product</th>
+				<th><%= sort_link(@search, :quantity) %>Quantity</th>
+				<th><%= sort_link(@search, :total_price) %>Total</th>
+				<th>Purchase Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @purchases.each do |purchase| %>
+				<tr>
+					<td><%= purchase.product.name %></td>
+					<td><%= purchase.quantity %></td>
+					<td><%= purchase.total_price %></td>
+					<td><%= purchase.created_at.strftime("%B, %d %y") %></td>
+					<!-- <td><%= purchase.user %></td> -->
+				</tr>
+			<% end %>
+		</tbody>
+</table>
+</div>
+

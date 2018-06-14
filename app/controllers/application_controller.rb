@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include MaintenanceSessionsHelper
   include SessionsHelper
   protect_from_forgery with: :exception
 
@@ -20,5 +21,9 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     redirect_to login_url if current_user.nil?
+  end
+
+  def authorize
+    redirect_to maintenance_login_url if current_maintenance_user.nil?
   end
 end

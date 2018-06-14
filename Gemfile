@@ -44,10 +44,14 @@ gem 'prawn-table'
 gem 'responders'
 gem 'email_validator'
 gem 'mail_form'
+gem "bootstrap_form", "~> 2.7"
+
 
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'capistrano-rails', group: :development
+gem 'capistrano'
+gem 'capistrano-passenger'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -2,8 +2,8 @@ class CategoriesController < ApplicationController
 	before_action :find_category, only: :show
 	before_action :authenticate
 	def index
-    @search = Category.ransack(params[:q])
-		@categories = @search.result.paginate(:page => params[:page])
+	    @search = Category.ransack(params[:q])
+		@categories = @search.result.order("name desc").paginate(:page => params[:page])
 	end
 
 	def show

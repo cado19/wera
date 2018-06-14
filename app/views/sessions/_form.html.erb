@@ -1,9 +1,7 @@
-<%= form_tag login_url do %>
-	<%= label_tag :email %>
-	<%= text_field_tag :email, params[:password], class: 'form-control' %><br>
+<%= bootstrap_form_tag url: '/login' do %>
+	<%= text_field_tag :email, params[:email], class: 'form-control', placeholder: "Email Address" %><br>
 
-	<%= label_tag :password %>
-	<%= password_field_tag :password, params[:password], class: 'form-control'  %><br>
+	<%= password_field_tag :password, params[:password], class: 'form-control', placeholder: "Password"  %><br>
 
-	<%= submit_tag 'Login', class: 'btn btn-info form-control' %> 
+	<%= submit_tag 'Login', class: 'btn btn-info' %> 
 <% end %>

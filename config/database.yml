@@ -80,11 +80,11 @@ test:
 staging:
   <<: *default
   database: wera_staging
-  username: root
+  username: deploy
   password: <%= ENV['WERA_DATABASE_PASSWORD'] %>
 
 production:
   <<: *default
   database: wera_production
-  username: root
+  username: deploy
   password: <%= ENV['WERA_DATABASE_PASSWORD'] %>

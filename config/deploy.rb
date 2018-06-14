@@ -3,7 +3,7 @@ lock "~> 3.11.0"
 
 set :application, "wera"
 set :repo_url, "https://github.com/cado19/wera.git"
-set :user, "root"
+set :user, "deploy"
 set :stages, %w(production staging)
 set :linked_dirs, fetch(:linked_dirs, []).push('log','tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 

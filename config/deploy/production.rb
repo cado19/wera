@@ -19,7 +19,7 @@
 
 role :app, %w{root@207.154.249.110}, my_property: :my_value
 role :web, %w{root@207.154.249.110}, other_property: :other_value
-role :db,  %w{root@207.154.249.110}}
+role :db,  %w{root@207.154.249.110}
 set :branch, "production"
 set :rails_env, "production"
 set :deploy_to, "var/www/wera_production"

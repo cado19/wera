@@ -17,9 +17,9 @@
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-role :app, %w{deploy@167.99.131.92}, my_property: :my_value
-role :web, %w{deploy@167.99.131.92}, other_property: :other_value
-role :db,  %w{deploy@167.99.131.92}
+role :app, %w{root@167.99.131.92}
+role :web, %w{root@167.99.131.92}
+role :db,  %w{root@167.99.131.92}, primary: true
 set :branch, "master"
 set :rails_env, "staging"
 set :deploy_to, "var/www/wera_staging"

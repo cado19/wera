@@ -257,6 +257,7 @@ DEPENDENCIES
   byebug
   cancancan (~> 2.0)
   capistrano
+  capistrano-bundler
   capistrano-passenger
   capistrano-rails
   capistrano-rbenv

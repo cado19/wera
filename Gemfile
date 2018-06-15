@@ -45,7 +45,7 @@ gem 'responders'
 gem 'email_validator'
 gem 'mail_form'
 gem "bootstrap_form", "~> 2.7"
-
+gem 'capistrano-rbenv'
 
 
 # Use Capistrano for deployment

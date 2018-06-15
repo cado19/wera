@@ -3,7 +3,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-# server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
+server "167.99.131.92", user: "root", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
@@ -17,12 +17,12 @@
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-role :app, %w{root@167.99.131.92}
-role :web, %w{root@167.99.131.92}
-role :db,  %w{root@167.99.131.92}, primary: true
-set :branch, "master"
-set :rails_env, "staging"
-set :deploy_to, "var/www/wera_staging"
+#role :app, %w{root@167.99.131.92}
+#role :web, %w{root@167.99.131.92}
+#role :db,  %w{root@167.99.131.92}, primary: true
+#set :branch, "master"
+#set :rails_env, "staging"
+#set :deploy_to, "var/www/wera_staging"
 
 
 

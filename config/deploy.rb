@@ -4,9 +4,11 @@ lock "~> 3.11.0"
 set :application, "wera"
 set :repo_url, "https://github.com/cado19/wera.git"
 set :user, "deploy"
-set :stages, %w(production staging)
+set :stages, %w(production)
 #set :linked_dirs, fetch(:linked_dirs, []).push('log','tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
+set :rbenv_type, :user # or :system, depends on your rbenv setup
+set :rbenv_ruby, '2.5.1'
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 

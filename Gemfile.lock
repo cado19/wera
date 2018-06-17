@@ -137,6 +137,9 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
+    passenger (5.3.2)
+      rack
+      rake (>= 0.8.1)
     pdf-core (0.7.0)
     pg (1.0.0)
     pg (1.0.0-x86-mingw32)
@@ -273,6 +276,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   mail_form
   paperclip (~> 6.0.0)
+  passenger (~> 5.0, >= 5.0.30)
   pg (>= 0.18, < 2.0)
   prawn
   prawn-table

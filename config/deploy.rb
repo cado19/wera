@@ -44,6 +44,7 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 # set :ssh_options, verify_host_key: :secure
 
 before "deploy:assets:precompile", "deploy:yarn_install"
+after "deploy:yarn_install", "deploy:yarn_add_jquery"
 after "deploy:migrate", "deploy:seed"
 
 namespace :deploy do
@@ -64,4 +65,13 @@ namespace :deploy do
       end
     end
   end
+ 
+ desc "add jquery with yarn"
+ task :yarn_add_jquery do
+   on roles (:web) do
+     within release_path do
+       execute("cd #{release_path} && yarn add jquery")
+     end
+   end
+ end
 end

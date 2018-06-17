@@ -73,7 +73,7 @@ Rails.application.configure do
     address:              'smtp.gmail.com',
     port:                      587,
     domain:                 'ziada.cloud',
-    user_name:            ENV["GMAIL_USERNAME"].
+    user_name:            ENV["GMAIL_USERNAME"],
     password:             ENV["GMAIL_PASSWORD"],
     authentication:      :plain,
     enable_starttls_auto: true  }

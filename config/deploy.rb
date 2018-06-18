@@ -44,6 +44,7 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 # set :ssh_options, verify_host_key: :secure
 
 before "deploy:assets:precompile", "deploy:yarn_install"
+before "deploy:assets:precompile", "deploy:add_jquery"
 after "deploy:migrate", "deploy:seed"
 
 namespace :deploy do
@@ -61,6 +62,15 @@ namespace :deploy do
     on roles(:all) do
       within current_path do
         execute :bundle, :exec, 'rails', 'db:seed', 'RAILS_ENV=production'
+      end
+    end
+  end
+
+  desc "Add Jquery"
+  task :add_jquery do
+    on roles(:web) do
+      within release_path do
+        execute("cd #{release_path} && yarn add jquery")
       end
     end
   end

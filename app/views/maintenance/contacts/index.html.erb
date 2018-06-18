@@ -1,0 +1,19 @@
+<div class="container">
+	<table class="table table-responsive ">
+		<thead>
+			<th><%= sort_link(@search, :name) %></th>
+			<th><%= sort_link(@search, :email) %></th>
+			<th>Time</th>
+		</thead>
+		<tbody>
+			<% @contacts.each do |contact| %>
+				<tr>
+					<td><%= contact.name %></td>
+					<td><%= contact.email %></td>
+					<td><%= account.created_at %></td>
+					<td><%= link_to "Details", maintenance_contact_url(contact), class: 'btn btn-default' %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

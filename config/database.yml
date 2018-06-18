@@ -86,5 +86,5 @@ staging:
 production:
   <<: *default
   database: wera_production
-  username: deploy
+  username: richie
   password: <%= ENV['WERA_DATABASE_PASSWORD'] %>

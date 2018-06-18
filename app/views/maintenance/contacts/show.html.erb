@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        Name: <%= @contact.name %>
+    </div>
+    <div>
+        Email: <%= @contact.email %>
+    </div>
+    <div class="row">
+        <div class="container">
+            <h4>Message</h4>
+            <%= @message %>
+        </div>
+    </div>
+    <div>
+        Date Sent <%= @message.created_at.strftime("%B %d %Y") %>
+        Time Sent <%= @message.created_at.strftime("%T") %>
+    </div>
+</div>

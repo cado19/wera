@@ -26,7 +26,7 @@
 
     <%= f.collection_select(:supplier_id, Supplier.all, :id, :name, prompt: 'Select Supplier') %>   
 
-    <%= f.submit 'Save', class: "btn btn-primary btn-sm" %>
+    <%= f.button 'Save', class: "btn btn-primary btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving Details..."} %>
     <%= link_to 'Cancel', admin_products_path, class: 'btn btn-danger btn-sm' %>
   <% end %>
   </div> <!-- /.col-sm-10 -->

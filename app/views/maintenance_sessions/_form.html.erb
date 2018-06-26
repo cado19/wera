@@ -5,5 +5,5 @@
 	<%= label_tag :password %>
 	<%= password_field_tag :password, params[:password], class: 'form-control'  %><br>
 
-	<%= submit_tag 'Login', class: 'btn btn-info form-control' %> 
+	<%= button_tag 'Login', class: 'btn btn-info', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Loggin In..."} %> 
 <% end %>

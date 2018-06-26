@@ -6,7 +6,7 @@
 
 		<%= f.select :country, ['Kenya', 'Uganda', 'Tanzania'], class: 'form-control' %><br>
 
-		<%= f.submit "Create Account", class: 'btn btn-primary'%>
+		<%= f.button "Create Account", class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving Details..."}%>
 		<%= link_to 'Cancel', welcome_home_url, class: 'btn btn-danger' %>
 	</div>
 <% end %>

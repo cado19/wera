@@ -34,5 +34,5 @@
    <%= f.file_field :avatar, class: 'label-control' %>
  </div><br>
 
- <%= f.submit 'Create User', class: 'btn btn-primary' %>
+ <%= f.button 'Create User', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving Details..."} %>
 <% end %>

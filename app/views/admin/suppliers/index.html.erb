@@ -26,11 +26,10 @@
           <% @suppliers.each do |supplier| %>
             <tr>
               <td><%= supplier.name %></td>
-              <td><%= supplier.Telephone %></td>
+              <td><%= supplier.telephone %></td>
               <td><%= supplier.email %></td>
               <td><%= link_to 'Show', admin_supplier_url(supplier) %></td>
               <td><%= link_to 'Edit', edit_admin_supplier_url(supplier) %></td>
-              <td><%= link_to 'Destroy', admin_supplier_url(supplier), method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>

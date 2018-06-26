@@ -15,7 +15,7 @@
     <%= f.text_field :name, id: :category_name, class: 'form-control' %>
   </div>
   <div class="actions form-group">
-    <%= f.submit 'Save', class: 'btn btn-primary btn-sm' %>
+    <%= f.button 'Save', class: 'btn btn-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving Details..."} %>
     <%= link_to 'Cancel', admin_categories_url, class: 'btn btn-danger btn-sm' %>
   </div>
 <% end %>

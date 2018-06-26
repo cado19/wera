@@ -3,5 +3,5 @@
 
 	<%= password_field_tag :password, params[:password], class: 'form-control', placeholder: "Password"  %><br>
 
-	<%= submit_tag 'Login', class: 'btn btn-info' %> 
+	<%= button_tag 'Login', class: 'btn btn-info', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Loggin In..."} %> 
 <% end %>

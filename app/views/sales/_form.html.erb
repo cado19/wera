@@ -16,9 +16,9 @@
 
       <%= f.select(:pay_type, Sale.pay_types.keys) %><br>
 
-      <%= f.text_field:pay_amount, class: 'form-control' %><br><br>
+      <%= f.text_field :pay_amount, class: 'form-control' %><br><br>
 
-    	<%= f.submit class: 'btn btn-primary btn-sm' %> <%= link_to 'Back', @cart, class: "btn btn-success btn-sm" %><br>
+    	<%= f.button class: 'btn btn-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Creating sale..."} %> <%= link_to 'Back', @cart, class: "btn btn-success btn-sm" %><br>
       <b>Total: </b><%= @cart.total_price %>
     </div>
   </div>

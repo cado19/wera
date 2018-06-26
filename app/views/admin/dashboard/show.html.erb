@@ -7,6 +7,9 @@
 			<p>Products: <%= "#{number_of_products}" %></p>
 			<p>Sales: <%= "#{number_of_sales}" %></p>
 			<p>Income: <%=%></p>
+
+			<%= button_to 'Delete Account', account_url(current_account), class: 'btn btn-danger btn-lg', data: {confirm: 'Are You Sure? This action is irreversible'}  %>
+			
 		</div>
 	</div>
 </section>

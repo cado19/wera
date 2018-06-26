@@ -67,6 +67,6 @@ class SalePdf < Prawn::Document
 	end
 
 	def biz_info
-		text "#{@account.name } #{@account.business_type}", size: 10, align: :center, style: :italic
+		text "#{@account.name }", size: 10, align: :center, style: :italic
 	end
 end

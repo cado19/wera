@@ -49,6 +49,7 @@ gem 'capistrano-rbenv'
 gem 'passenger', '~> 5.0', '>= 5.0.30'
 gem 'railties', '~> 5.0', '>= 5.0.0.1'
 gem 'sitemap_generator'
+gem 'by_star', git: "git://github.com/radar/by_star"
 
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development

@@ -1,9 +1,13 @@
 class Account < ApplicationRecord
   cattr_accessor :current_id
 
-  has_many :sales
-  has_many :users
-  has_many :products
+  has_many :sales, dependent: :destroy
+  has_many :users, dependent: :destroy
+  has_many :products, dependent: :destroy
+  has_many :purchases, dependent: :destroy
+  has_many :sale_items, dependent: :destroy
+  has_many :carts, dependent: :destroy
+  has_many :suppliers, dependent: :destroy
 
   validates :subdomain, presence: true,
               uniqueness: true,

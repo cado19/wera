@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/radar/by_star
+  revision: 422c06ec1ea8ce633aca014a4403fbac92630057
+  specs:
+    by_star (3.0.0)
+      activesupport (> 3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -264,6 +271,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootstrap-sass
   bootstrap_form (~> 2.7)
+  by_star!
   byebug
   cancancan (~> 2.0)
   capistrano

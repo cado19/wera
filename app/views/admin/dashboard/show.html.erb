@@ -1,15 +1,12 @@
 <section class="content">
 	<div class="box box-primary">
 		<div class="box box-body">
-			<p>Account Name: <%= @account.name %></p>
-			<p>Subdomain: <%= @account.subdomain%></p>
+			<p>Account Name: <%= current_account.name %></p>
+			<p>Subdomain: <%= current_account.subdomain%></p>
 			<p>Users: <%= "#{number_of_users}" %></p>
 			<p>Products: <%= "#{number_of_products}" %></p>
 			<p>Sales: <%= "#{number_of_sales}" %></p>
-			<p>Income: <%=%></p>
-
-			<%= button_to 'Delete Account', account_url(current_account), class: 'btn btn-danger btn-lg', data: {confirm: 'Are You Sure? This action is irreversible'}  %>
-			
+			<p>Created at: <%= current_account.created_at.strftime("%B %d %Y") %>			
 		</div>
 	</div>
 </section>

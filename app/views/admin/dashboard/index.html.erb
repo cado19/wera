@@ -120,3 +120,109 @@
   </section>
 </div>
 <br>
+
+<%#Daily Stats%>
+<div class="row">
+  <div class="container">
+    <h2>Finances today </h2>
+    <%# Sales Today %>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-green">
+          <i class="fa fa-cart-arrow-down"></i>
+        </span>
+        <div class="info-box-content">
+          <span class="info-box-text">Income Today</span>
+          <span class="info-box-number"><%= "#{income_today}" %></span>
+        </div>
+      </div>
+    </div>
+  
+
+    <%# Purchases Today %>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-green">
+          <i class="fa fa-credit-card-alt"></i>
+        </span>
+        <div class="info-box-content">
+          <span class="info-box-text">Expenses Today</span>
+          <span class="info-box-number"><%= "#{expenses_today}" %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% #End Daily Stats %>
+<br>
+
+<% #Weekly Stats %>
+<div class="row">
+  <div class="container">
+    <h2>Finances for the last 7 days </h2>
+      <%# Sales Last 7 Days %>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-green">
+            <i class="fa fa-cart-arrow-down"></i>
+          </span>
+          <div class="info-box-content">
+            <span class="info-box-text">Income Last 7 Days</span>
+            <span class="info-box-number"><%= "#{income_this_week}" %></span>
+          </div>
+        </div>
+      </div>
+
+      <%# Purchases Last 7 Days %>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-green">
+            <i class="fa fa-credit-card-alt"></i>
+          </span>
+          <div class="info-box-content">
+            <span class="info-box-text">Expenses Last 7 Days</span>
+            <span class="info-box-number"><%= "#{expenses_this_week}" %></span>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<% #End Weekly Stats %>
+<br>
+<% #Monthly Stats %>
+<div class="row">
+   <%# Sales Last 30 Days %>
+   <div class="container">
+    <h2>Finances for the last 30 days </h2>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-green">
+          <i class="fa fa-cart-arrow-down"></i>
+        </span>
+        <div class="info-box-content">
+          <span class="info-box-text">Income Last 30 Days</span>
+          <span class="info-box-number"><%= "#{income_this_month}" %></span>
+        </div>
+      </div>
+    </div>
+
+    <%# Purchases Last 30 Days %>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-green">
+          <i class="fa fa-credit-card-alt"></i>
+        </span>
+        <div class="info-box-content">
+          <span class="info-box-text">Expenses Last 30 Days</span>
+          <span class="info-box-number"><%= "#{expenses_this_month}" %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% #End Monthly Stats %>
+<br>
+<div class="row">
+  <div class="container">
+    <%= link_to 'My Account', admin_my_account_url, class: 'btn btn-primary' %>
+  </div>

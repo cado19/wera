@@ -42,7 +42,7 @@ Rails.application.routes.draw do
           end
   		    resources :purchases
           resources :users
-          get 'dashboards/show'
+          get '/my_account', to: 'dashboard#show'
           get 'highest_selling/highest_selling'
 					root to: 'dashboard#index'
   	    end

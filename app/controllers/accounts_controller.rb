@@ -15,6 +15,12 @@ class AccountsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@account = Account.find(params[:id])
+		@account.destroy
+		redirect_to maintenance_accounts_url
+	end
+
 	private
 
 	def account_params

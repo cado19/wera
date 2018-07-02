@@ -2,17 +2,18 @@
     <div class="row">
         Name: <%= @contact.name %>
     </div>
-    <div>
+    <div class="row">
         Email: <%= @contact.email %>
     </div>
     <div class="row">
         <div class="container">
-            <h4>Message</h4>
-            <%= @message %>
+            <h5>Message</h5>
+            <%= @contact.message %>
+	    <hr>
         </div>
     </div>
-    <div>
-        Date Sent <%= @message.created_at.strftime("%B %d %Y") %>
-        Time Sent <%= @message.created_at.strftime("%T") %>
+    <div class="row">
+        <p><em>Date Sent <%= @contact.created_at.strftime("%B %d %Y") %></em></p>
+        <p><em>Time Sent <%= @contact.created_at.strftime("%T") %></em></p>
     </div>
 </div>

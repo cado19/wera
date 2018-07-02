@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="container">
 			<h3 align="center">Users in this account</h3>
-			<table class="table table-condensed">
+			<table class="table table-condensed table-responsive">
 				<thead>
 					<th>Name</th>
 					<th>Email</th>
@@ -23,5 +23,10 @@
 				</tbody>
 			</table>
 		</div>
+	</div>
+	<div class="row">
+		<div>
+			<%= button_to 'Delete Account', maintenance_accounts_url(@account), method: :delete, data: {confirm: 'Are you sure. This action is irreversible'}, class: 'btn btn-danger' %>
+		</div> 
 	</div>
 </div>

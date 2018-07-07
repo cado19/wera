@@ -18,7 +18,7 @@
 							<td><%= user.name %></td>
 							<td><%= user.email %></td>
 							<td><%= user.role.name %></td>
-						</tr>						
+						</tr>
 					<% end %>
 				</tbody>
 			</table>
@@ -26,7 +26,7 @@
 	</div>
 	<div class="row">
 		<div>
-			<%= button_to 'Delete Account', maintenance_accounts_url(@account), method: :delete, data: {confirm: 'Are you sure. This action is irreversible'}, class: 'btn btn-danger' %>
-		</div> 
+			<%= link_to 'Delete Account', accounts_path(@account), method: :delete, data: {confirm: 'Are you sure. This action is irreversible'}, class: 'btn btn-danger' %>
+		</div>
 	</div>
 </div>

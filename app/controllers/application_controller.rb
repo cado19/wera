@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
 
   def current_account
-  	Account.find_by_subdomain! request.subdomain
+  	 Account.find_by_subdomain! request.subdomain
   end
 
   def scope_current_account

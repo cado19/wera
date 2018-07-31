@@ -4,10 +4,18 @@
   <!-- User Panel -->
   <div class="user-panel">
     <div class="pull-left image">
-      <%= image_tag current_user.avatar.url(:medium), class: "img-circle img-responsive admin-image" %>
+      <% if user_logged_in? %>
+        <%= image_tag current_user.avatar.url(:medium), class: "img-circle img-responsive admin-image" %>
+      <% elsif owner_logged_in? %>
+        <%= image_tag current_owner.avatar.url(:medium), class: "img-circle img-responsive admin-image" %>
+      <% end %>
     </div>
     <div class="pull-left info">
-      <p><%= current_user.name %></p>
+      <% if user_logged_in? %>
+        <p><%= current_user.name %></p>
+      <% elsif owner_logged_in? %>
+        <p><%= current_owner.name %></p>
+      <% end %>
       <a href="#">
         <i class="fa fa-circle text-success"></i>
         Online

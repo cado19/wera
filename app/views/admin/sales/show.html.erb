@@ -28,7 +28,13 @@
             <strong>Served By:</strong>
           </div>
           <div class="col-sm-10">
-            <%= @sale.user.name %>
+            <% if @sale.user %>
+              <%= @sale.user.name %>
+            <% elsif @sale.owner %>
+              <%= @sale.user.name %>
+            <% else %>
+              Deleted user
+            <% end %>
           </div>
         </div>
         <br>

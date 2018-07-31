@@ -1,9 +1,9 @@
-<%= bootstrap_form_for @user, html: {multipart: true} do |f| %>
+<%= bootstrap_form_for @owner, html: {multipart: true} do |f| %>
   <div id="error-message">
-   <% if @user.errors.any? %>
-   	<p>Kindly rectify the following <%= pluralize(@user.errors.count, "error") %></p>
+   <% if @owner.errors.any? %>
+   	<p>Kindly rectify the following <%= pluralize(@owner.errors.count, "error") %></p>
    	<ul>
-   		<% @user.errors.full_messages.each do |msg| %>
+   		<% @owner.errors.full_messages.each do |msg| %>
    			<li><%= msg %></li>
    		<% end %>
    	</ul>
@@ -27,12 +27,8 @@
  </div>
 
  <div class="field">
-  <%= f.collection_select(:role_id, Role.all, :id, :name)%><br>
- </div>
-
- <div class="field">
    <%= f.file_field :avatar, class: 'label-control' %>
  </div><br>
 
- <%= f.button 'Create User', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving Details..."} %>
+ <%= f.button 'Create Owner', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving Details..."} %>
 <% end %>

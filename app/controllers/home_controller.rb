@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-	include SessionsHelper
 	before_action :authenticate
   def index
   	@user = current_user

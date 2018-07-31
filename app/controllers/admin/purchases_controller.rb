@@ -15,13 +15,17 @@ class Admin::PurchasesController < Admin::BaseController
   def new
     @purchase = Purchase.new
     @products = Product.where(stockable: true)
-    #@suppliers = Supplier.all 
+    #@suppliers = Supplier.all
   end
 
   #POST suppliers
   def create
     @purchase = Purchase.new(purchase_params)
-    @purchase.user_id = current_user.id
+    if current_owner
+      @purchase.owner_id = current_owner.id
+    elsif current_user
+      @purchase.user_id = current_user.id
+    end    
     if @purchase.save
       flash[:notice] = "You Have successfully purchased #{@purchase.quantity} #{@purchase.product.name}s"
       redirect_to admin_purchase_url(@purchase)

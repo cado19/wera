@@ -20,7 +20,15 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate
-    redirect_to login_url if current_user.nil?
+    if current_owner.nil?
+      if current_user.nil?
+        redirect_to login_url
+      end
+    end
+    #if current_user.nil? || current_owner.nil?
+    #  redirect_to login_url
+    #end
+    #redirect_to login_user_url if (current_user.nil || current_owner.nil)?
   end
 
   def authorize

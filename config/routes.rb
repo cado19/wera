@@ -15,8 +15,8 @@ Rails.application.routes.draw do
 
 ###################################### Routes for presence of subdomain/account #########################################
   ################## #Admin Routes ##################################################
-	constraints(SubdomainPresent) do   
-  		namespace :admin do 
+	constraints(SubdomainPresent) do
+  		namespace :admin do
   		    resources :categories do
             collection do
               match 'search' => 'categories#search', via: [:get, :post], as: :search
@@ -54,6 +54,8 @@ Rails.application.routes.draw do
     get '/login', to: 'sessions#new'
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
+		resources :owners
+
 
     #############################################################################
     get 'home/index'
@@ -65,7 +67,7 @@ Rails.application.routes.draw do
     resources :password_resets
     root to: 'home#index'
   end
-  ################################ END SUBDOMAIN ROUTES #########################################
+  ################################ END DOMAIN ROUTES #########################################
 
   ##################### Routes for absence of subdomain/account ######################################
     get 'welcome/home'

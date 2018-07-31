@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180612130559) do
+ActiveRecord::Schema.define(version: 20180731130929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,20 @@ ActiveRecord::Schema.define(version: 20180612130559) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "owners", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.bigint "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.index ["account_id"], name: "index_owners_on_account_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "code"
     t.string "name"
@@ -83,7 +97,9 @@ ActiveRecord::Schema.define(version: 20180612130559) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "owner_id"
     t.index ["account_id"], name: "index_purchases_on_account_id"
+    t.index ["owner_id"], name: "index_purchases_on_owner_id"
     t.index ["product_id"], name: "index_purchases_on_product_id"
     t.index ["user_id"], name: "index_purchases_on_user_id"
   end
@@ -119,7 +135,9 @@ ActiveRecord::Schema.define(version: 20180612130559) do
     t.bigint "user_id"
     t.bigint "account_id"
     t.string "code"
+    t.bigint "owner_id"
     t.index ["account_id"], name: "index_sales_on_account_id"
+    t.index ["owner_id"], name: "index_sales_on_owner_id"
     t.index ["user_id"], name: "index_sales_on_user_id"
   end
 
@@ -153,10 +171,12 @@ ActiveRecord::Schema.define(version: 20180612130559) do
 
   add_foreign_key "carts", "accounts"
   add_foreign_key "categories", "accounts"
+  add_foreign_key "owners", "accounts"
   add_foreign_key "products", "accounts"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "suppliers"
   add_foreign_key "purchases", "accounts"
+  add_foreign_key "purchases", "owners"
   add_foreign_key "purchases", "products"
   add_foreign_key "purchases", "users"
   add_foreign_key "sale_items", "accounts"
@@ -164,6 +184,7 @@ ActiveRecord::Schema.define(version: 20180612130559) do
   add_foreign_key "sale_items", "products"
   add_foreign_key "sale_items", "sales"
   add_foreign_key "sales", "accounts"
+  add_foreign_key "sales", "owners"
   add_foreign_key "sales", "users"
   add_foreign_key "suppliers", "accounts"
   add_foreign_key "users", "accounts"

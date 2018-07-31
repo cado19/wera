@@ -1,6 +1,5 @@
 class SalesController < ApplicationController
   before_action :authenticate
-  include SessionsHelper
   include CurrentCart
   before_action :set_cart, only: [:new, :create]
   before_action :ensure_cart_has_sth, only: :new
@@ -12,8 +11,12 @@ class SalesController < ApplicationController
 
   def create
   	@sale = Sale.new(sale_params)
-    @sale.user_id = current_user.id # Get the User performing the sale
-    @sale.add_sale_items_from_cart(@cart)    
+    if current_owner
+      @purchase.owner_id = current_owner.id
+    elsif current_user
+      @sale.user_id = current_user.id # Get the User performing the sale
+    end
+    @sale.add_sale_items_from_cart(@cart)
     if @sale.save
     	Cart.destroy(session[:cart_id])
     	session[:cart_id] = nil

@@ -9,16 +9,10 @@ class AccountsController < ApplicationController
 	def create
 		@account = Account.new(account_params)
 		if @account.save
-			redirect_to new_user_url(subdomain: @account.subdomain)
+			redirect_to new_owner_url(subdomain: @account.subdomain)
 		else
 			render 'new'
 		end
-	end
-
-	def destroy
-		@account = Account.find(params[:id])
-		@account.destroy
-		redirect_to maintenance_accounts_url
 	end
 
 	private

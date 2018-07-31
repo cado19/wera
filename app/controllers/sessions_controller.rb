@@ -5,8 +5,15 @@ class SessionsController < ApplicationController
 
   def create
   	user = User.find_by_email(params[:email])
-  	if user && user.authenticate(params[:password])
-  		login user
+    owner = Owner.find_by_email(params[:email])
+    authenticated_user = user && user.authenticate(params[:password])
+    authenticated_owner = owner && owner.authenticate(params[:password])
+  	if authenticated_user #user && user.authenticate(params[:password])
+  		login_user user
+      redirect_to home_index_url
+      flash[:notice] = "Welcome to ziada"
+    elsif authenticated_owner
+      login_owner owner
   		redirect_to home_index_url
       flash[:notice] = "Welcome to ziada"
   	else
@@ -16,7 +23,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-  	session[:user_id] = nil
+  	session[:user_id] = nil #logout standard user
+    session[:owner_id] = nil #logout owner
   	redirect_to login_url
   end
 end

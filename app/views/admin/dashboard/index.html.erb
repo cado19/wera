@@ -71,7 +71,6 @@
             <% @sales.each do |sale| %>
               <tr>
                 <td><%= sale.code %></td>
-                <td><%= sale.user.name %></td>
                 <td><%= sale.created_at.strftime("%T") %></td>
                 <td><%= sale.total %></td>
                 <td><%= sale.pay_amount %></td>
@@ -137,7 +136,7 @@
         </div>
       </div>
     </div>
-  
+
 
     <%# Purchases Today %>
     <div class="col-md-6 col-sm-6 col-xs-12">

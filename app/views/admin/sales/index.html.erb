@@ -24,12 +24,11 @@
         <tbody>
           <% @sales.each do |sale| %>
             <tr>
-              <td><%= sale.code %></td>
-              <td><%= sale.name %></td>
+              <td><%= sale.code, admin_sale_url(sale) %></td>
+              <td><%= sale.name, admin_sale_url(sale) %></td>
               <td><%= sale.pay_type %></td>
               <td><%= sale.pay_amount %></td>
               <td><%= sale.balance %></td>
-              <td><%= link_to 'Show', admin_sale_url(sale) %></td>
             </tr>
           <% end %>
         </tbody>

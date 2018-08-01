@@ -33,7 +33,7 @@
         <tbody>
           <% @products.each do |product| %>
             <tr>
-              <td><%= product.name %></td>
+              <td><%= link_to product.name, admin_product_url(product) %></td>
               <td><%= product.purchase_price %></td>
               <td><%= product.selling_price %></td>
               <td><%= product.category.name %></td>
@@ -44,7 +44,6 @@
                   <p>Product is not stockable</p>
                 <% end %>
               </td>
-              <td><%= link_to 'Details', admin_product_url(product) %></td>
             </tr>
           <% end %>
         </tbody>

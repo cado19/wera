@@ -25,11 +25,10 @@
         <tbody>
           <% @purchases.each do |purchase| %>
             <tr>
-              <td><%= purchase.product.name %></td>
+              <td><%= link_to purchase.product.name, admin_purchase_url(purchase) %></td>
               <td><%= purchase.quantity %></td>
               <td><%= purchase.product.purchase_price %></td>
               <td><%= purchase.total_price %></td>
-              <td><%= link_to 'Show', admin_purchase_url(purchase), class: 'btn btn-default btn-sm' %></td>
           <% end %>
         </tbody>
       </table>

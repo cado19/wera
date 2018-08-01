@@ -7,12 +7,13 @@ class SalesController < ApplicationController
 
   def new
     @sale = Sale.new
+    @sale.customers.build
   end
 
   def create
   	@sale = Sale.new(sale_params)
     if current_owner
-      @purchase.owner_id = current_owner.id
+      @sale.owner_id = current_owner.id
     elsif current_user
       @sale.user_id = current_user.id # Get the User performing the sale
     end
@@ -48,7 +49,8 @@ class SalesController < ApplicationController
   end
 
   def sale_params
- 	  params.require(:sale).permit(:name, :pay_type, :pay_amount, :total, :balance)
+ 	  params.require(:sale).permit(:name, :pay_type, :pay_amount, :total, :balance,
+                          customers_attributes: [:id, :name, :contact])
   end
 
   def ensure_cart_has_sth

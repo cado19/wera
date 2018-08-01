@@ -18,6 +18,21 @@
 
       <div class="row">
           <div class="col-sm-2 col-md-2">
+            <h4>Purchased by: </h4>
+          </div>
+          <div class="col-sm-10 col-md-10">
+            <% if @purchase.user_id %>
+              <h4><%= @purchase.user %></h4>
+            <% elsif @purchase.owner_id %>
+              <h4><%= @purchase.owner_id %></h4>
+            <% else %>
+              <h4>Deleted User</h4>
+            <% end %>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-sm-2 col-md-2">
             <h4>Purchase price</h4>
           </div>
           <div class="col-sm-10 col-md-10">

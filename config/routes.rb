@@ -59,7 +59,9 @@ Rails.application.routes.draw do
 
     #############################################################################
     get 'home/index'
-    resources :sales #only: [:new, :create, :show, :index]
+    resources :sales do
+    	resources :customers
+    end
     resources :sale_items, only: [:new, :create, :show]
     resources :carts #, only: [:new, :create, :show]
     resources :products, only: [:index, :show]

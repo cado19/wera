@@ -24,8 +24,8 @@
         <tbody>
           <% @sales.each do |sale| %>
             <tr>
-              <td><%= sale.code, admin_sale_url(sale) %></td>
-              <td><%= sale.name, admin_sale_url(sale) %></td>
+              <td><%= link_to sale.code, admin_sale_url(sale) %></td>
+              <td><%= link_to sale.name, admin_sale_url(sale) %></td>
               <td><%= sale.pay_type %></td>
               <td><%= sale.pay_amount %></td>
               <td><%= sale.balance %></td>

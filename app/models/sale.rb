@@ -3,12 +3,16 @@ class Sale < ApplicationRecord
     "Cash" => 0,
     "Mobile Money" => 1
   }
-  
+
   #ASSOCIATIONS
-  belongs_to  :user
+  belongs_to  :owner, optional: true
+  belongs_to  :user, optional: true
   belongs_to  :account
   has_many    :sale_items, dependent: :destroy
   has_many    :products, through: :sale_items
+  has_many    :customers
+
+  accepts_nested_attributes_for :customers
 
   #VALIDATIONS
   # validates :name, presence: true

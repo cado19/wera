@@ -10,8 +10,6 @@
       </ul>
     </div>
   <% end %>
-
-  <%= f.input :name %>
   <%= f.collection_select :pay_type, Sale.pay_type.keys, prompt: "Select Payment Type" %>
   <%= f.input :pay_amount %>
   <%= f.submit class: 'btn btn-primary' %>

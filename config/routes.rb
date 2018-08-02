@@ -23,6 +23,12 @@ Rails.application.routes.draw do
             end
           end
 
+					resources :customers do
+            collection do
+              match 'search' => 'customers#search', via: [:get, :post], as: :search
+            end
+          end
+
   		    resources :sales do
             collection do
               match 'search' => 'sales#search', via: [:get, :post], as: :search

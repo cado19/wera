@@ -10,7 +10,7 @@ class Sale < ApplicationRecord
   belongs_to  :account
   has_many    :sale_items, dependent: :destroy
   has_many    :products, through: :sale_items
-  has_many    :customers
+  has_many    :customers, dependent: :destroy
 
   accepts_nested_attributes_for :customers
 

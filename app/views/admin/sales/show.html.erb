@@ -21,9 +21,7 @@
             <% if @sale.user %>
               <%= @sale.user.name %>
             <% elsif @sale.owner %>
-              <%= @sale.user.name %>
-            <% else %>
-              Deleted user
+              <%= @sale.owner.name %>
             <% end %>
           </div>
         </div>

@@ -83,6 +83,7 @@ Rails.application.routes.draw do
     resources :contacts, only: [:new, :create]
     root 'welcome#home'
     resources :accounts, only: [:new, :create]
+		resources :posts, only: [:index, :show]
     ####### Routes for maintenance sessions ###########################################################
     get '/maintenance_login', to: 'maintenance_sessions#new'
     post '/maintenance_login', to: 'maintenance_sessions#create'
@@ -96,6 +97,7 @@ Rails.application.routes.draw do
         end
       end
 
+			resources :posts
       resources :contacts do
         collection do
           match 'search' => 'contacts#search', via: [:get, :post], as: :search

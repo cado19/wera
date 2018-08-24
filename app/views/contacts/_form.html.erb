@@ -1,13 +1,22 @@
-<%= form_for @contact do |f| %>
-	<%= f.label :name %>
+<%= bootstrap_form_for @contact, html: {multipart: true, class: 'no-label'} do |f| %>
+<div id="errors">
+	<% if @contact.errors.any?  %>
+		<p>Kindly rectify the following <%= pluralize(@contact.errors.count, "error") %></p>
+		<ul>
+			<% @contact.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>
+	<% end %>
+</div>
 	<%= f.text_field :name, placeholder: "Name", class: 'form-control' %><br>
 
-	<%= f.label :email %>
 	<%= f.text_field :email, placeholder: "Email", class: 'form-control' %><br>
 
-	<%= f.label :message %>
 	<%= f.text_area :message, class: 'form-control' %><br>
 
-	<%= f.submit "Send", class: "btn btn-sm btn-info" %>
+	<%= f.button "Send",
+			class: "btn btn-sm btn-info",
+			data: {disable_with: "<i class='fa fa-spinner fa-spin'>Sending Message</i>"} %>
 	<%= link_to "Cancel", welcome_home_url, class: 'btn btn-default' %>
 <% end %>

@@ -1,0 +1,20 @@
+<%= bootstrap_form_for ([:maintenance,@post]), html: {multipart: true, class: 'no-label'} do |f| %>
+  <div id="error-message">
+   <% if @post.errors.any? %>
+   	<p>Kindly rectify the following <%= pluralize(@post.errors.count, "error") %></p>
+   	<ul>
+   		<% @post.errors.full_messages.each do |msg| %>
+   			<li><%= msg %></li>
+   		<% end %>
+   	</ul>
+   <% end %>
+  </div>
+
+  <%= f.text_field :title %>
+
+  <%= f.text_area :body %>
+
+  <%= f.button 'Save',
+      class: 'btn btn-primary btn-sm',
+      data: {disable_with: "<i class='fa fa-spinner fa-spin'>Saving Post</i>" } %>
+<% end %>

@@ -22,3 +22,9 @@ body{
 			letter-spacing: 1px;
 	}
 }
+
+.no-label{
+	.control-label{
+		display: none;
+	}
+}

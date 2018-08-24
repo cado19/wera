@@ -12,12 +12,12 @@
         </div>
       <% end %>
 
-      <%= f.select(:pay_type, Sale.pay_types.keys) %><br>
+      <%= f.select(:pay_type, Sale.pay_types.keys)%><br>
 
       <%= f.text_field :pay_amount, class: 'form-control' %><br>
 
-      <%= link_to "Customer Details", '#', id: 'customer-link' %>
-      <section id="hidden-form">
+      <%= link_to "Customer Details", '#', i: 'customer-link' %>
+      <section id="hidden-form" class="no-label">
         <%= f.fields_for :customers do |c| %>
           <%= c.text_field :name, class: 'form-control', placeholder: 'Customer Name' %><br>
 

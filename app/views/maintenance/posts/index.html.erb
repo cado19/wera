@@ -1,0 +1,12 @@
+<div class="jumbotron">
+  <h2 class="title">Blog Posts</h2>
+</div>
+<div class="container">
+  <ul class="post-list">
+    <% @posts.each do |post| %>
+      <li>
+        <%= link_to post.title, post, class: 'post' %>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -56,7 +56,7 @@ class SalesController < ApplicationController
   def ensure_cart_has_sth
     if @cart.sale_items.empty?
       flash[:notice] = "Your Cart is Empty"
-      redirect_to store_index_url
+      redirect_to products_url
     end
   end
 end

@@ -16,16 +16,15 @@
 
       <%= f.text_field :pay_amount, class: 'form-control' %><br>
 
-      <%= link_to "Customer Details", '#', i: 'customer-link' %>
+      <%= link_to "Customer Details", '#', id: 'customer-link' %>
+
       <section id="hidden-form" class="no-label">
         <%= f.fields_for :customers do |c| %>
-          <%= c.text_field :name, class: 'form-control', placeholder: 'Customer Name' %><br>
+          <%= c.text_field :name, class: 'form-control', placeholder: 'Customer Name' %>
 
           <%= c.text_field :contact, class: 'form-control', placeholder: 'Customer Contact' %>
         <% end %>
       </section><br>
-
-
 
     	<%= f.button class: 'btn btn-primary btn-sm', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Creating sale..."} %> <%= link_to 'Back', @cart, class: "btn btn-success btn-sm" %><br>
       <b>Total: </b><%= @cart.total_price %>

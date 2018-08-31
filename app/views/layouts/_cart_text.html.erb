@@ -1,1 +1,2 @@
 <h4 align="center"><%= link_to "#{pluralize(@cart.sale_items.size, 'item')} in Cart", @cart  %></h4>
+<h4 align="center"><%= button_to "Checkout", new_sale_url, method: :get, class: "btn btn-primary" %> </h4>

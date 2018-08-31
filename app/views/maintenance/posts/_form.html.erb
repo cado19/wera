@@ -1,4 +1,4 @@
-<%= bootstrap_form_for ([:maintenance,@post]), html: {multipart: true, class: 'no-label'} do |f| %>
+<%= bootstrap_form_for ([:maintenance,@post]) do |f| %>
   <div id="error-message">
    <% if @post.errors.any? %>
    	<p>Kindly rectify the following <%= pluralize(@post.errors.count, "error") %></p>
@@ -9,10 +9,11 @@
    	</ul>
    <% end %>
   </div>
+  <section class="no-label">
+    <%= f.text_field :title, placeholder: 'Title' %>
 
-  <%= f.text_field :title %>
-
-  <%= f.text_area :body %>
+    <%= f.text_area :body, placeholder: 'Body' %>
+  </section>
 
   <%= f.button 'Save',
       class: 'btn btn-primary btn-sm',

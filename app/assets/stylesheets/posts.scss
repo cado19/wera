@@ -3,9 +3,21 @@
   padding: 0;
   li{
     border-left: 5px solid #ddd;
+    padding: 20px;
     margin: 10px 20px;
-    :hover{
+    &:hover{
       border-color: #9361bf;
     }
+  }
+}
+
+.post{
+  font-size: 19px;
+}
+
+.actions{
+  margin-top: 20px;
+  a{
+    margin: 5px;
   }
 }

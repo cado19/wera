@@ -1,11 +1,12 @@
 <div class="jumbotron">
   <h2 class="title">Blog Posts</h2>
+  <%= link_to 'New Post', new_maintenance_post_url, class: 'btn btn-default' %>
 </div>
 <div class="container">
   <ul class="post-list">
     <% @posts.each do |post| %>
       <li>
-        <%= link_to post.title, post, class: 'post' %>
+        <%= link_to post.title, maintenance_post_url(post), class: 'post' %>
       </li>
     <% end %>
   </ul>

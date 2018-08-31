@@ -14,7 +14,7 @@ class Maintenance::PostsController < Maintenance::BaseController
     @post = Post.new(post_params)
     if @post.save
       flash[:notice] = "Blog post was created"
-      redirect to @post
+      redirect_to maintenance_post_url(@post)
     else
       render 'new'
       flash.now[:notice] = "blog was not created"
@@ -30,7 +30,12 @@ class Maintenance::PostsController < Maintenance::BaseController
   end
 
   def update
-
+    if @post.update(post_params)
+      flash[:notice] = "Blog post was updated"
+      redirect_to maintenance_post_url(@post)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -46,6 +51,6 @@ class Maintenance::PostsController < Maintenance::BaseController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :body)
   end
 end

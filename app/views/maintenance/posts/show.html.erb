@@ -3,7 +3,16 @@
     <%= @post.title %>
   </h2>
 
-  <p>
+  <p class="post">
     <%= @post.body %>
   </p>
+
+  <div class="actions">
+    <%= link_to 'Back', maintenance_posts_url, class: 'btn btn-default' %>
+    <%= link_to 'Edit', edit_maintenance_post_url(@post), class: 'btn btn-default' %>
+    <%= link_to 'Delete', maintenance_post_url(@post),
+         method: :delete,
+         data: {confirm: 'Are you sure?'},
+         class: 'btn btn-danger' %>
+  </div>
 </div>

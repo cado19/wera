@@ -2,19 +2,28 @@ class SaleItemsController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:create]
   before_action :authenticate
+  before_action :find_sale_item, only: [:update, :destroy]
 
-  def new
-    @sale_item = SaleItem.new
-  end
 
   def create
-    product = Product.find(params[:product_id])
-      @sale_item = @cart.add_product(product)
-      if @sale_item.save
-        flash[:notice] = "Product Added To Cart"
-        redirect_to products_url
-      else
-        flash[:danger] = "Product Not Added To Cart"
-      end
+      @sale_item = @cart.sale_items.new(sale_item_params)
+      @sale_item.save
   end
+
+  def update
+    @sale_item.update_attributes(sale_item_params)
+  end
+
+  def destroy
+    @sale_item.destroy
+  end
+
+  private
+    def sale_item_params
+      params.require(:sale_item).permit(:product_id, :quantity)
+    end
+
+    def find_sale_item
+      @sale_item = @cart.sale_items.find(params[:id])
+    end
 end

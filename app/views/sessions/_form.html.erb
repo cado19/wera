@@ -1,7 +1,11 @@
-<%= bootstrap_form_tag url: '/login' do %>
-	<%= text_field_tag :email, params[:email], class: 'form-control', placeholder: "Email Address" %><br>
+<%= form_tag url: '/login' do %>
+	<div class="form-group">
+		<%= text_field_tag :email, params[:email], class: 'form-control', placeholder: "Email Address" %>
+	</div>
 
-	<%= password_field_tag :password, params[:password], class: 'form-control', placeholder: "Password"  %><br>
+	<div class="form-group">
+		<%= password_field_tag :password, params[:password], class: 'form-control', placeholder: "Password"  %>
+	</div>
 
-	<%= button_tag 'Login', class: 'btn btn-info', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Loggin In..."} %> 
+	<%= button_tag 'Login', class: 'btn btn-info', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Loggin In..."} %>
 <% end %>

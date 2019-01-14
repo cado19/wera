@@ -11,31 +11,30 @@
     <%= csrf_meta_tags %>
 
     <%= favicon_link_tag 'favicon.ico' %>
-
-
-
   </head>
 
   <body>
     <!-- Navbar -->
     <%= render 'layouts/shared/navigation' %>
-
-    <div class="container-fluid">
-      <div class="pull-right">
-        <div id="biz-info">
-          <%= current_account.name %>
+    <div class="row">
+      <div class="container-fluid">
+        <div class="pull-right">
+          <div id="biz-info">
+            <%= current_account.name %>
+          </div>
         </div>
-      </div>
-    </div><br>
-
-    <!-- Cart Link -->
-    <div class="cart-text">
-      <% if @cart %>
-        <%= render 'layouts/cart_text' %>
-        <hr>
-      <% end %>
+      </div><br>
     </div>
 
+
+    <!-- Cart Link -->
+    <% if @cart %>
+      <div class="cart-text">
+        <%= render 'layouts/shared/cart_text' %>
+      </div>
+      <hr>
+      <%= render 'layouts/shared/checkout_text' %>
+    <% end %>
 
     <div class="container">
       <div class="col-sm-12 col-md-12">

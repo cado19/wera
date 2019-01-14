@@ -70,8 +70,11 @@ Rails.application.routes.draw do
     end
     resources :sale_items, only: [:new, :create, :show]
     resources :carts #, only: [:new, :create, :show]
-    resources :products, only: [:index, :show]
+		get 'products/available' => 'products#available', as: 'available_products'
+		resources :products, only: [:index, :show]
+
     resources :categories, only: [:index, :show]
+		resources :catalog
     resources :password_resets
     root to: 'home#index'
   end

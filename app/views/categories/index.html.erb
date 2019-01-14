@@ -1,9 +1,9 @@
 <% provide(:categories, "active") %>
 <div class="container">
 	<div class="pull-right">
-		<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal"><i class="fa fa-search"></i>Search Category</button>
+		  <%= text_field_tag :search, "", class: 'form-control searchField', placeholder: 'Search product..' %>
 	</div>
-	<table class="table table-responsive">
+	<table class="table table-responsive-sm" id="myTable">
 		<thead>
 			<tr>
 				<th><%= sort_link(@search, :name) %></th>

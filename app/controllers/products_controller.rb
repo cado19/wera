@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :find_product, only: :show
   before_action :set_cart
   before_action :authenticate
-  
+
   def index
   	@search = Product.ransack(params[:q])
   	@products = @search.result.order("name desc").paginate(:page => params[:page])
@@ -11,6 +11,11 @@ class ProductsController < ApplicationController
 
   def show
 
+  end
+
+  def available
+    @products = Product.available
+    render 'index'
   end
 
   def destroy

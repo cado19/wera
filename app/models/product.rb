@@ -16,7 +16,7 @@ class Product < ApplicationRecord
 
   #CALLBACKS
   before_create :set_code
-  
+
   #scope :stockable, ->  { where (stockable: true) }
 
   def self.stockable
@@ -38,6 +38,10 @@ class Product < ApplicationRecord
 
   def set_purchase_price
     self.purchase_price = 0.00
+  end
+
+  def self.available
+    where('quantity > ?', 0)
   end
 
   private

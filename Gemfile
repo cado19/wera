@@ -17,7 +17,9 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby
+#gem 'therubyracer', platforms: :ruby
+
+gem 'mini_racer'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -34,9 +36,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'will_paginate'
 gem "font-awesome-rails"
 gem 'ransack'
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.2.1'
+gem 'jquery-rails'
 gem 'webpacker', '~> 3.2'
-gem "autoprefixer-rails"
 gem 'cancancan', '~> 2.0'
 gem "paperclip", "~> 6.0.0"
 gem 'prawn'

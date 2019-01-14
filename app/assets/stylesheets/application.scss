@@ -10,23 +10,22 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require rails_bootstrap_forms
  */
 
 
- @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "AdminLTE";
  @import "_all-skins";
  @import "font-awesome";
  @import "customer";
 
-
  // Variables
  @import "base/variables";
 
  // Partials
+ /*
  @import "layout/navigation";
+ */
 
  @import "layout";
  @import "welcome";
@@ -36,3 +35,7 @@
  .spaceabove {
    //margin-bottom: 10px;
  }
+
+#myList {
+  list-style-type: none;
+}

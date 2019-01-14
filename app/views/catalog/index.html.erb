@@ -1,0 +1,41 @@
+<h2 align="center">Catalog</h2>
+<div class="col-sm-4 offset-sm-8 form-group">
+  <%= text_field_tag :search, "", class: 'form-control searchField', placeholder: 'Search product..' %>
+</div>
+<table class="table table-responsive-sm" id="myTable">
+  <thead>
+    <tr>
+      <th><%= sort_link(@search, :name) %></th>
+      <th><%= sort_link(@search, :category) %></th>
+      <th>Qty</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% cache @products do %>
+     <% @products.each do |product| %>
+      <% cache product do %>
+        <tr>
+          <td>
+            <%= product.name %><br>
+              <small><em><b>Stock Amount: </b></em><%= product.quantity %></small>
+          </td>
+          <td><%= product.category.name %></td>
+          <td>
+            <%= form_for(@sale_item, remote: true) do |f| %>
+            <div class="form-group">
+              <%= f.hidden_field :product_id, value: product.id %>
+            </div>
+            <div class="form-group">
+              <%= f.number_field :quantity, class: 'form-control' %>
+            </div>
+              <%= f.submit 'Add to cart', class: 'btn btn-success btn-sm' %>
+              <small><b>Cost: </b><%= product.selling_price %></small>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+     <% end %>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @products %>

@@ -1,6 +1,6 @@
 class SaleItem < ApplicationRecord
   #ASSOCIATIONS
-  belongs_to :product, optional: true
+  belongs_to :product
   belongs_to :cart
   belongs_to :account
   belongs_to :sale, optional: true
@@ -10,13 +10,13 @@ class SaleItem < ApplicationRecord
 
 
   #CALLBACKS
-  before_destroy :return_products
+  #before_destroy :return_products
 
   default_scope { where(account_id: Account.current_id) }
 
   def total_price
     product = self.product
-    product.selling_price * quantity
+    product.selling_price * self.quantity
   end
 
   def adequate_product

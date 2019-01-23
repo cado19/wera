@@ -11,9 +11,6 @@
           <%= link_to 'View Products', admin_products_path, class: 'nav-link active' %>
         </li>
         <li class="nav-item">
-          <%= link_to "Available Products", admin_available_products_url, class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
           <%= link_to 'New Product', new_admin_product_path, class: 'nav-link' %>
         </li>
       </ul>
@@ -22,6 +19,9 @@
       <ul class="nav nav-pills">
         <li class="nav-item">
           <%= link_to 'All Products', admin_products_url, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Available Products", admin_available_products_url, class: 'nav-link' %>
         </li>
         <li class="nav-item">
           <%= link_to 'Out of stock', admin_unavailable_products_url, class: 'nav-link' %>

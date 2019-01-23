@@ -8,16 +8,19 @@
 	<div class="box box-primary">
 		<div class="box-body">
 		  <ul class="nav nav-tabs" role="tablist">
-				<li><%= link_to 'All Products', admin_products_url %></li>
-				<li class="active"><%= link_to 'New Product', new_admin_product_url %></li>
+				<li class="nav-item">
+					<%= link_to 'All Products', admin_products_url, class: 'nav-link' %>
+				</li>
+				<li class="nav-item">
+					<%= link_to "Available Products", admin_available_products_url, class: 'nav-link' %>
+				</li>
+				<li class="nav-item">
+					<%= link_to 'New Product', new_admin_product_url, class: 'nav-link active' %>
+				</li>
 		  </ul>
-		<br>
+			<br>
 	    <% #Render Form %>
-		  <div class="panel">
-				<div class="panel-body">
-					<%= render 'form' %>
-				</div>
-			</div>
+			<%= render 'form' %>
 		</div>
 	</div>
 </section>

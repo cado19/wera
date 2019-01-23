@@ -7,6 +7,7 @@ class SaleItem < ApplicationRecord
 
   #VALIDATIONS
   validate :adequate_product #, on: :create
+  validates :quantity, presence: true, numericality: {only_integer: true, greater_than: 0 }
 
 
   #CALLBACKS
@@ -15,8 +16,7 @@ class SaleItem < ApplicationRecord
   default_scope { where(account_id: Account.current_id) }
 
   def total_price
-    product = self.product
-    product.selling_price * self.quantity
+    product.selling_price * quantity
   end
 
   def adequate_product

@@ -44,6 +44,10 @@ class Product < ApplicationRecord
     where('quantity > ?', 0)
   end
 
+  def self.unavailable
+    where('quantity = ?', 0)
+  end
+
   private
 
     def ensure_cart_not_referenced_by_any_sale_items

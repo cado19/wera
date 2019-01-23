@@ -14,8 +14,8 @@ Rails.application.routes.draw do
 
 
 ###################################### Routes for presence of subdomain/account #########################################
-  ################## #Admin Routes ##################################################
 	constraints(SubdomainPresent) do
+		################## #Admin Routes ##################################################
   		namespace :admin do
   		    resources :categories do
             collection do
@@ -34,7 +34,8 @@ Rails.application.routes.draw do
               match 'search' => 'sales#search', via: [:get, :post], as: :search
             end
           end
-
+					get 'products/available', to: 'products#available', as: 'available_products'
+					get 'products/unavailable', to: 'products#unavailable', as: 'unavailable_products'
   		    resources :products do
             collection do
               match 'search' => 'products#search', via: [:get, :post], as: :search
@@ -50,6 +51,7 @@ Rails.application.routes.draw do
           resources :users
           get '/my_account', to: 'dashboard#show'
           get 'highest_selling/highest_selling'
+
 					root to: 'dashboard#index'
   	    end
     ################### END ADMIN ROUTES #############################################
@@ -68,7 +70,7 @@ Rails.application.routes.draw do
     resources :sales do
     	resources :customers
     end
-    resources :sale_items, only: [:new, :create, :show]
+    resources :sale_items, only: [:new, :create, :show, :update, :destroy]
     resources :carts #, only: [:new, :create, :show]
 		get 'products/available' => 'products#available', as: 'available_products'
 		resources :products, only: [:index, :show]

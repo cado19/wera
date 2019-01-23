@@ -1,0 +1,21 @@
+<% provide(:products, "active") %>
+<h2>Products Out of stock</h2>
+<table class="table table-responsive">
+  <thead>
+    <th><%= sort_link(@search, :name) %></th>
+    <th><%= sort_link(@search, :category) %></th>
+    <th><%= sort_link(@search, :selling_price) %></th>
+  </thead>
+  <tbody>
+    <%= @products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.category %></td>
+      <td><%= product.selling_price %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= @products.each do |product| %>
+<% end %>

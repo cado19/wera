@@ -37,15 +37,20 @@ $contentMargin: 50px;
 */
 
 #showcase{
-	background-color: $backgroundColour;
-  background: image-url('Moss.jpg');
+	//background-color: $backgroundColour;
+  background: image-url('Moss.jpg') no-repeat center center fixed;
 	height: $height;
+	background-size: cover;
+	display: table;
+	position: relative;
+	width: 100%;
 	h1, h2, h3, h4, h5{
 		color: $white;
 	}
   #hook{
-     margin-top: 100px;
-     margin-bottom: $contentMargin;
+		display: table-cell;
+		text-align: center;
+		vertical-align: middle;
    }
   p{
     color: $textColour;
@@ -54,11 +59,16 @@ $contentMargin: 50px;
 
 #about{
   height: $height;
+	width: 100%;
   line-height: 2em;
 
   #about-content{
     margin-bottom: $contentMargin;
   }
+
+	#about-links {
+		margin: 0 auto;
+	}
 
   p{
     color: $textColour;
@@ -67,13 +77,21 @@ $contentMargin: 50px;
 }
 
 #features{
-  height: auto;
+  //height: auto;
+	width: 100%;
+
+	h1,h5{
+		text-align: center;
+	}
   .fa{
     font-size: $icon-size;
   }
   .feature-header{
     font-weight: bold;
   }
+	.links{
+		margin: 0 auto;
+	}
 }
 
 #contact{

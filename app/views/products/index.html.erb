@@ -1,36 +1,37 @@
 <% provide(:products, "active") %>
 <h3 align="center">Products</h3>
-<div class="pb-5">
-	<div class="pull-right">
-		<%= text_field_tag :search, "", class: 'form-control searchField', placeholder: 'Search product..' %>
+<div class="container">
+	<div class="pb-5">
+		<div class="pull-right">
+			<%= text_field_tag :search, "", class: 'form-control searchField', placeholder: 'Search product..' %>
+		</div>
 	</div>
-</div>
 
-
-<div class="text-center">
-	<table class="table table-responsive-md" id="myTable">
-		<thead class="thead-light">
-			<tr>
-				<th><%= sort_link(@search, :name) %></th>
-				<th><%= sort_link(@search, :selling_price) %></th>
-				<th>Category</th>
-				<th><%= sort_link(@search, :quantity) %></th>
-			</tr>
-		</thead>
-		<tbody>
-			<% cache @products do %>
-			 <% @products.each do |product| %>
-			  <% cache product do %>
-					<tr>
-						<td><%= product.name %></td>
-						<td><%= product.selling_price %></td>
-						<td><%= product.category.name %></td>
-						<td><%= product.quantity %></td>
-					</tr>
-			  <% end %>
-			 <% end %>
-			<% end %>
-		</tbody>
-	</table>
+	<div class="text-center">
+		<table class="table table-responsive-md" id="myTable">
+			<thead class="thead-light">
+				<tr>
+					<th><%= sort_link(@search, :name) %></th>
+					<th><%= sort_link(@search, :selling_price) %></th>
+					<th>Category</th>
+					<th><%= sort_link(@search, :quantity) %></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% cache @products do %>
+				 <% @products.each do |product| %>
+				  <% cache product do %>
+						<tr>
+							<td><%= product.name %></td>
+							<td><%= product.selling_price %></td>
+							<td><%= product.category.name %></td>
+							<td><%= product.quantity %></td>
+						</tr>
+				  <% end %>
+				 <% end %>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<%= will_paginate @products %>
 </div>
-<%= will_paginate @products %>

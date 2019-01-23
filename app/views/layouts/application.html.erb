@@ -14,7 +14,7 @@
   </head>
 
   <body>
-    <!-- Navbar -->
+    <!-- Navbar partial -->
     <%= render 'layouts/shared/navigation' %>
     <div class="row">
       <div class="container-fluid">
@@ -27,15 +27,17 @@
     </div>
 
 
-    <!-- Cart Link -->
+    <!-- Cart Link, Checkout Link, Cart Modal partials -->
     <% if @cart %>
       <div class="cart-text">
         <%= render 'layouts/shared/cart_text' %>
       </div>
-      <hr>
       <%= render 'layouts/shared/checkout_text' %>
+      <%= render 'layouts/shared/cart_modal' %>
+      <hr>
     <% end %>
 
+    <!-- Flash Messages -->
     <div class="container">
       <div class="col-sm-12 col-md-12">
         <%= render 'layouts/shared/flash' %>

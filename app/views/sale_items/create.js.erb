@@ -1,5 +1,7 @@
 <% if @sale_item.errors.any? %>
   alert("Invalid")
 <% else %>
-  $('.cart-text').html("<%= escape_javascript(render 'layouts/shared/cart_text') %>")
+  $('.cart-text').html("<%= j render('layouts/shared/cart_text') %>")
+  $('.cart-item').html("<%= j render('carts/cart_item') %>")
+  $('.subtotal').html("<%= j render('carts/cart_total') %>")
 <% end %>

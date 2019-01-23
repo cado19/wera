@@ -50,6 +50,20 @@ class Admin::ProductsController < Admin::BaseController
     flash[:notice] = 'Product was successfully destroyed.'
   end
 
+  #available products
+  def available
+    @search = Product.available.ransack(params[:q])
+    @products = @search.result.order("name desc").paginate(:page => params[:page])
+    render 'index'
+  end
+
+  #out of stock products
+  def unavailable
+    @search = Product.unavailable.ransack(params[:q])
+    @products = @search.result.order("name desc").paginate(:page => params[:page])
+    render 'index'
+  end
+
   #search
   def search
     @search = Product.ransack(params[:q])

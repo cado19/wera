@@ -1,1 +1,6 @@
-<h4 align="center"><%= link_to "#{pluralize(@cart.sale_items.count, 'item')} in Cart", @cart  %></h4>
+<h4 align="center">
+  <%= link_to "#{pluralize(@cart.sale_items.size, 'item')} in Cart",
+      '#',
+      class: 'btn btn-link',
+      data: {toggle: 'modal', target: '#cartModal'}   %>
+</h4>

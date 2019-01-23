@@ -5,19 +5,21 @@
 <section class="content">
   <div class="box box-primary">
     <div class="box box-body">
-      <ul class="nav nav-tabs" role="tablist">
-        <li class="active"><%= link_to 'View Category', admin_categories_url %></li>
-        <li><%= link_to 'New Category', new_admin_category_url %></li>
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <%= link_to 'View Category', admin_categories_url, class: 'nav-link active' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'New Category', new_admin_category_url, class: 'nav-link' %>
+        </li>
       </ul>
       <br>
 
-      <div class="pull-right">
-        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">
-          <i class="fa fa-search"></i> Search Category
-        </button>
+      <div class="pull-right form-group">
+          <%= text_field_tag :search, "", class: 'form-control searchField', placeholder: 'Search category..' %>
       </div>
 
-      <table class="table table-condensed table-responsive">
+      <table class="table table-responsive-sm" id="myTable">
         <thead>
           <tr>
             <th><%= sort_link(@search, :name) %></th>
@@ -36,43 +38,8 @@
           <% end %>
         </tbody>
       </table>
+      <%= will_paginate @categories %>
     </box>
   </box>
 </section>
 <br>
-
-<div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Search Category</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div> <!-- /.modal-header -->
-
-      <!-- Modal Body -->
-      <div class="modal-body">
-        <div class="row">
-          <div class="container">
-            <%= search_form_for @search, url: search_admin_categories_url do |f| %>
-              <p>
-                <%= f.label :name_cont, "Name" %>
-                <%= f.text_field :name_cont %><br>
-              </p>
-
-              <p>
-                <%= f.submit class: 'btn btn-sm' %>
-              </p>
-            <% end %>
-          </div>
-        </div>
-      </div><!-- /.modal-body -->
-      <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        </div>
-    </div><!-- -->
-  </div>
-</div><!-- -->

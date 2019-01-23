@@ -1,6 +1,6 @@
 <div class="">
   <div class="col-sm-12 col-md-12">
-  <%= bootstrap_form_for([:admin,@product ], html: {multipart: true, class: 'form-horizontal'}) do |f| %>
+  <%= form_for([:admin,@product ]) do |f| %>
     <% if @product.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -11,23 +11,34 @@
         </ul>
       </div>
     <% end %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :category %>
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {prompt: 'Select Category'}, {class: 'form-control'}) %>
+    </div>
+    <div class="form-group">
+      <%= f.label :purchase_price %>
+      <%= f.text_field :purchase_price, placeholder: "0.0", class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :selling_price %>
+      <%= f.text_field :selling_price, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :manufacturer %>
+      <%= f.text_field :manufacturer, class: 'form-control' %>
+    </div>
 
-    <%= f.text_field :name, class: 'form-control' %>
-
-    <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: 'Select Category') %>
-
-    <%= f.text_field :purchase_price, placeholder: "0.0", class: 'form-control' %>
-
-    <%= f.text_field :selling_price, class: 'form-control' %>
-
-    <%= f.text_field :manufacturer, class: 'form-control' %>
-
-    <%= f.check_box :stockable %><br>
-
-    <%= f.collection_select(:supplier_id, Supplier.all, :id, :name, prompt: 'Select Supplier') %>   
+    <div class="form-group">
+      <%= f.label :supplier %>
+      <%= f.collection_select(:supplier_id, Supplier.all, :id, :name, {prompt: 'Select Supplier'}, {class: 'form-control'}) %>
+    </div>
 
     <%= f.button 'Save', class: "btn btn-primary btn-sm", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving Details..."} %>
     <%= link_to 'Cancel', admin_products_path, class: 'btn btn-danger btn-sm' %>
   <% end %>
-  </div> <!-- /.col-sm-10 -->
-</div> <!-- /.col-sm-10 -->
+  </div> <!-- /.col-sm-12 -->
+</div> <!-- /.col-sm-12 -->

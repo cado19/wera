@@ -1,11 +1,11 @@
 <div class="container">
-	<div class="panel">
-		<div class="panel-heading">
+	<!-- <nav aria-label="breadcrumb"> -->
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item active">1: create business account</li>
+			<li class="breadcrumb-item">2: create owner profile of the business</li>
+		</ol>
+	<!-- </nav> -->
 			<h5 align="center">Create Account</h5>
-		</div>
-		<div class="panel-body">
 			<%= render 'form'%>
-		</div>
 		<p>By creating an account you agree to our <%= link_to "Terms and Conditions", welcome_policy_url, tagret: :_blank %> </p>
-	</div>
 </div>

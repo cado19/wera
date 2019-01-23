@@ -7,7 +7,6 @@
   <div class="box box-primary">
     <div class="box box-body">
       <div class="container">
-          <div class="row">
             <p>
               <strong>Name:</strong>
               <%= @product.name %>
@@ -33,14 +32,11 @@
               <%= @product.category.name %>
             </p>
 
-
             <p>
               <strong>Supplier:</strong>
               <%= @product.supplier.name %>
             </p>
-          </div>
         <br>
-          <%= link_to 'Back', admin_products_path, class: 'btn btn-default btn-sm' %> |
           <%= link_to 'Edit', edit_admin_product_path(@product), class: 'btn btn-default btn-sm' %> |
           <%= link_to 'Delete', admin_product_url(@product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
       </div>

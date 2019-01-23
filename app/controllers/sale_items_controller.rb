@@ -1,6 +1,6 @@
 class SaleItemsController < ApplicationController
   include CurrentCart
-  before_action :set_cart, only: [:create]
+  before_action :set_cart #, only: [:create]
   before_action :authenticate
   before_action :find_sale_item, only: [:update, :destroy]
 
@@ -8,6 +8,7 @@ class SaleItemsController < ApplicationController
   def create
       @sale_item = @cart.sale_items.new(sale_item_params)
       @sale_item.save
+
   end
 
   def update

@@ -1,22 +1,19 @@
-<h3>Sales</h3>
+<h3 align="center">Sales</h3>
 
 <section class="content">
   <div class="box box-primary">
     <div class="box box-body">
-      <div class="pull-right">
-        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">
-          <i class="fa fa-search"></i> Search Sale
-        </button>
+      <div class="pull-right form-group">
+        <%= text_field_tag :search, "", class: 'form-control searchField', placeholder: 'Search sale..' %>
       </div>
       <br>
-      <table class="table table-responsive">
+      <table class="table table-responsive-sm" id="myTable">
         <thead>
           <tr>
             <th>Code</th>
             <th>Pay type</th>
             <th><%= sort_link(@search, :pay_amount) %></th>
             <th><%= sort_link(@search, :balance) %></th>
-            <th colspan="3"></th>
           </tr>
         </thead>
 
@@ -31,68 +28,8 @@
           <% end %>
         </tbody>
       </table>
+      <%= will_paginate @sales %>
     </div>
   </div>
 </section>
 <br>
-<div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Search Sale</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div> <!-- /.modal-header -->
-
-      <!-- Modal Body -->
-      <div class="modal-body">
-        <div class="row">
-          <div class="container">
-            <%= search_form_for @search, url: search_admin_sales_url do |f| %>
-              <p>
-                <%= f.label :code_cont, "Code" %>
-                <%= f.text_field :code_cont %><br>
-              </p>
-
-              <p>
-                <%= f.label :pay_type_cont, "Payment Type" %>
-                <%= f.text_field :pay_type_cont %><br>
-              </p>
-
-              <p>
-                <%= f.label :pay_amount_gteq, "Payment Range" %>
-                <%= f.text_field :pay_amount_gteq %>
-                <%= f.label :pay_amount_lteq, "and" %>
-                <%= f.text_field :pay_amount_lteq %><br>
-              </p>
-
-              <p>
-                <%= f.label :balance_gteq, "Balance Range" %>
-                <%= f.text_field :balance_gteq %>
-                <%= f.label :balance_lteq, "and" %>
-                <%= f.text_field :balance_lteq %><br>
-              </p>
-
-              <p>
-                <%= f.label :created_at_gteq, "Transaction Date Range" %>
-                <%= f.text_field :created_at_gteq, placeholder: "dd/mm/yyyy"%>
-                <%= f.label :created_at_lteq, "and" %>
-                <%= f.text_field :created_at_lteq, placeholder: "dd/mm/yyyy" %><br>
-              </p>
-
-              <p>
-                <%= f.submit class: 'btn btn-sm btn-info' %>
-              </p>
-              <% end %>
-            </div>
-          </div>
-        </div><!-- /.modal-body -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        </div>
-    </div><!-- /.modal-content -->
-  </div>
-</div><!-- -->

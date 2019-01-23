@@ -1,2 +1,3 @@
-$('.cart').html("<%= escape_javascript(render 'layouts/shared/cart_text') %>")
+$('.cart-text').html("<%= escape_javascript(render 'layouts/shared/cart_text') %>")
 $('.cart-item').html("<%= escape_javascript(render 'carts/cart_item') %>")
+$('.subtotal').html("<%= j render('carts/cart_total') %>")

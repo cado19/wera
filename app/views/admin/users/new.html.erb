@@ -1,10 +1,14 @@
-<div class = "col-md-6 col-md-offset-3">
- <div class = "panel">
-  <div class = "panel-heading">
-   <h3 align = "center">Create User</h3>
-  </div>
-  <div class = "panel-body">
-   <%= render 'form' %>
-  </div>
- </div>
-</div>
+<section class="content">
+  <section class="box box-primary">
+    <section class="box box-body">
+      <ul class="nav nav-tabs">
+        <li class="nav-item"><%= link_to 'All users', admin_users_url %></li>
+        <li class="active nav-item"><%= link_to 'New user', new_admin_user_url %></li>
+      </ul>
+      <div class = "col-md-6 col-md-offset-3">
+       <h3 align = "center">Create User</h3>
+       <%= render 'form' %>
+      </div>
+    </section>
+  </section>
+</section>

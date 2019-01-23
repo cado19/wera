@@ -1,4 +1,4 @@
-<%= bootstrap_form_for([:admin, @purchase], html: {class: 'form-horizontal'}) do |f| %>
+<%= form_for([:admin, @purchase]) do |f| %>
     <div class="col-sm-10 col-md-10">
       <div class="container">
         <% if @purchase.errors.any? %>
@@ -13,9 +13,14 @@
           </div>
         <% end %>
       </div>
-    <%= f.collection_select(:product_id, Product.stockable, :id, :name, prompt: 'Select a product')  %><br>
-
-    <%= f.text_field :quantity %>
+    <div class="form-group">
+      <%= f.label :product %>
+      <%= f.collection_select(:product_id, Product.all, :id, :name, {prompt: 'Select a product'}, {class: 'form-control'}) %>
+    </div>
+    <div class="form-group">
+      <%= f.label :quantity %>
+      <%= f.text_field :quantity, class: 'form-control' %>
+    </div>
 
     <p id="button-paragraph">
        <%= f.button class: "btn btn-sm btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving Details..."} %>

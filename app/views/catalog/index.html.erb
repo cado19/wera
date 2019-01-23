@@ -5,8 +5,8 @@
 <table class="table table-responsive-sm" id="myTable">
   <thead>
     <tr>
-      <th><%= sort_link(@search, :name) %></th>
-      <th><%= sort_link(@search, :category) %></th>
+      <th>name</th>
+      <th> category </th>
       <th>Qty</th>
     </tr>
   </thead>
@@ -38,4 +38,4 @@
     <% end %>
   </tbody>
 </table>
-<%= will_paginate @products %>
+<%# will_paginate @products %>

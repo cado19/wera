@@ -1,3 +1,9 @@
 $('.cart-text').html("<%= escape_javascript(render 'layouts/shared/cart_text') %>")
 $('.cart-item').html("<%= escape_javascript(render 'carts/cart_item') %>")
 $('.subtotal').html("<%= j render('carts/cart_total') %>")
+
+// This partial deals with deletion of sale Items
+// After a sale item is deleted from the database,
+// 1. The Number of products in the cart reduces So the cart text is re rendered using jquery
+// 2. A cart item is removed from the cart.
+// 3. The cart total changes. The new new cart total is re rendered.

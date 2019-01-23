@@ -1,3 +1,7 @@
-$('.cart-text').html("<%= escape_javascript(render 'layouts/shared/cart_text') %>")
 $('.cart-item').html("<%= escape_javascript(render 'carts/cart_item') %>")
 $('.subtotal').html("<%= j render('carts/cart_total') %>")
+
+// This partial deals with updating quantities of sale Items
+// After a sale item's quantity is updated,
+// 1. A cart item quantity and total price changes. It is therefore re rendered with the new values.
+// 2. The cart total changes. The new new cart total is re rendered.

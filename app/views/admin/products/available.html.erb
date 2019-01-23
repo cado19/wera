@@ -22,7 +22,7 @@
   </div>
 </section>
 
-<table class="table table-responsive-sm">
+<table class="table table-responsive-sm" id="myTable">
   <thead>
     <th><%= sort_link(@search, :name) %></th>
     <th><%= sort_link(@search, :category) %></th>
@@ -38,6 +38,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= @products.each do |product| %>
-<% end %>

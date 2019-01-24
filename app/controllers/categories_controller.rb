@@ -2,12 +2,13 @@ class CategoriesController < ApplicationController
 	before_action :find_category, only: :show
 	before_action :authenticate
 	def index
-	    @search = Category.ransack(params[:q])
+    @search = Category.ransack(params[:q])
 		@categories = @search.result.order("name desc").paginate(:page => params[:page])
 	end
 
 	def show
-		@products = @category.products
+		@search = @category.products.ransack(params[:q])
+		@products = @search.result.paginate(:page => params[:page])
 	end
 
 	def destroy

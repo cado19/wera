@@ -3,29 +3,39 @@
   <h3><%= @category.name %></h3>
 </section>
 
-	<h5 align="center">Products in <%= "#{@category.name}" %> Category</h5>
-	<table class="table table-responsive table-condensed">
-		<thead>
-			<th>Name</th>
-			<th>Purchase Price</th>
-			<th>Sale Price</th>
-      <th>Quantity</th>
-			<th></th>
-		</thead>
-		<tbody>
-			<% @products.each do |product| %>
-        <tr>
-          <td><%= link_to product.name, product %></td>
-  				<td><%= product.purchase_price %></td>
-  				<td><%= product.selling_price %></td>
-  				<td><%= product.quantity %></td>
-        </tr>
-			<% end %>
-		</tbody>
-	</table>
+<section class="content">
+  <div class="box-box-primary">
+    <div class="box box-body">
+      <div class="container">
+        
+        <h5 align="center">Products in <%= "#{@category.name}" %> Category</h5>
+      	<table class="table table-responsive-sm table-condensed">
+      		<thead>
+      			<th>Name</th>
+      			<th>Purchase Price</th>
+      			<th>Sale Price</th>
+            <th>Quantity</th>
+      			<th></th>
+      		</thead>
+      		<tbody>
+      			<% @products.each do |product| %>
+              <tr>
+                <td><%= link_to product.name, product %></td>
+        				<td><%= product.purchase_price %></td>
+        				<td><%= product.selling_price %></td>
+        				<td><%= product.quantity %></td>
+              </tr>
+      			<% end %>
+            <%= will_paginate @products %>
+      		</tbody>
+      	</table>
 
 
-<%= link_to 'Edit', edit_admin_category_url(@category), class: 'btn btn-sm btn-default' %> |
-<%= link_to 'Back', admin_categories_url, class: 'btn btn-sm btn-default' %> |
-<%= link_to 'Delete', admin_category_url(@category), method: :delete, data: {confirm: 'Are You Sure?'},
-    class: 'btn btn-sm btn-danger'%>
+      <%= link_to 'Edit', edit_admin_category_url(@category), class: 'btn btn-sm btn-default' %> |
+      <%= link_to 'Delete', admin_category_url(@category), method: :delete, data: {confirm: 'Are You Sure?'},
+          class: 'btn btn-sm btn-danger'%>
+
+      </div>
+    </div>
+  </div>
+</section>

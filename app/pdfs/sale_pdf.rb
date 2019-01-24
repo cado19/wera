@@ -5,13 +5,12 @@ class SalePdf < Prawn::Document
 		@account = account
 		biz_info
 		sale_code
-		sale_name
 		teller
 		date
 		time
 		sale_items
 		total_price
-		balance		
+		balance
 	end
 
 	def sale_code
@@ -19,14 +18,9 @@ class SalePdf < Prawn::Document
 		text "Sale \##{@sale.code}", size: 20, style: :bold
 	end
 
-	def sale_name
-		move_down 20
-		text "Customer: #{@sale.name}", size: 20, style: :bold
-	end
-
 	def teller
 		move_down 20
-		text "Served by: #{@sale.user.name}", size: 20, style: :bold
+		text "Served by: #{if user ? ? @sale.user.name : @sale.owner.name}", size: 20, style: :bold
 	end
 
 	def date

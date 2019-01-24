@@ -6,7 +6,7 @@ class CatalogController < ApplicationController
     #@search = Product.available.ransack(params[:q])
     #@products = @search.result.order("name desc").paginate(:page => params[:page])
     #@products = Product.available.order("name desc").paginate(:page => params[:page])
-    @products = Product.all
+    @products = Product.notDeleted.inStock
     @sale_item = SaleItem.new
   end
 end

@@ -45,9 +45,9 @@ class Admin::ProductsController < Admin::BaseController
 
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy
+    @product.update_attribute(:deleted, true)
     redirect_to admin_products_url
-    flash[:notice] = 'Product was successfully destroyed.'
+    flash[:notice] = 'Product deleted.'
   end
 
   #available products

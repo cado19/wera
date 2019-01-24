@@ -17,7 +17,7 @@ class Product < ApplicationRecord
   #CALLBACKS
   before_create :set_code
 
-  #scope :stockable, ->  { where (stockable: true) }
+  #scope :destroyed, where(:deleted => true)
 
   def self.stockable
     where(stockable: true)
@@ -40,8 +40,20 @@ class Product < ApplicationRecord
     self.purchase_price = 0.00
   end
 
-  def self.available
+  def self.inStock
     where('quantity > ?', 0)
+  end
+
+  def self.deleted
+    where(deleted: true)
+  end
+
+  def self.notDeleted
+    where(deleted: false)
+  end
+
+  def self.available
+    where(inStock && notDeleted)
   end
 
   def self.unavailable

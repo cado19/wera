@@ -9,7 +9,7 @@ class CartsController < ApplicationController
   def destroy
   	@cart.destroy if @cart.id = session[:cart_id]
   	session[:cart_id] == nil
-  	redirect_to products_url
+  	redirect_to catalog_index_url
   	flash[:notice] = "Your Cart Has Been Successfully Emptied"
   end
 

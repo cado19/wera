@@ -21,7 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'mini_racer'
 
-# Use CoffeeScript for .coffee assets and views
+# Use CoffeeScript forgem 'pdfkit', '~> 0.8.2' .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
@@ -52,6 +52,7 @@ gem 'passenger', '~> 5.0', '>= 5.0.30'
 gem 'railties', '~> 5.0', '>= 5.0.0.1'
 gem 'sitemap_generator'
 gem 'by_star', git: "git://github.com/radar/by_star"
+gem 'pdfkit', '~> 0.8.2'
 
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development

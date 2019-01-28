@@ -1,6 +1,7 @@
 require_relative 'boot'
 
 require 'rails/all'
+require 'pdfkit'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -14,6 +15,7 @@ module Wera
     # create a db specific dump in structure.sql file rather than schema.rb. IIRC when :sql is set rails test code loads that instead of the schema.rb
     # config.active_record.schema_format = :sql
     config.time_zone = 'Nairobi'
+    config.middleware.use PDFKit::Middleware
 
 
     # Settings in config/environments/* take precedence over those specified here.

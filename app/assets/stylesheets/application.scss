@@ -39,3 +39,24 @@
 #myList {
   list-style-type: none;
 }
+
+#sale_footer{
+  display: none;
+}
+
+@media print{
+  #navigation {
+    display: none
+  }
+
+  #sale_complete_links{
+    display: none;
+  }
+
+  #sale_footer {
+    bottom: 0;
+    height: 60px;
+    line-height: 60px;
+    display: block;
+  }
+}

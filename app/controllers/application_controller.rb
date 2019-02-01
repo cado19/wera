@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   around_action :scope_current_account
 
-
+  
   def current_account
   	 Account.find_by_subdomain! request.subdomain
   end

@@ -69,7 +69,8 @@ Rails.application.routes.draw do
     get 'home/index'
     resources :sales do
     	resources :customers
-    end
+		end
+
     resources :sale_items, only: [:new, :create, :show, :update, :destroy]
     resources :carts #, only: [:new, :create, :show]
 		get 'products/available' => 'products#available', as: 'available_products'

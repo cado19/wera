@@ -43,7 +43,6 @@ gem 'cancancan', '~> 2.0'
 gem "paperclip", "~> 6.0.0"
 gem 'prawn'
 gem 'prawn-table'
-gem 'responders'
 gem 'email_validator'
 gem 'mail_form'
 gem "bootstrap_form", "~> 2.7"
@@ -53,6 +52,9 @@ gem 'railties', '~> 5.0', '>= 5.0.0.1'
 gem 'sitemap_generator'
 gem 'by_star', git: "git://github.com/radar/by_star"
 gem 'pdfkit', '~> 0.8.2'
+gem 'render_anywhere', require: false
+gem 'responders', '~> 2.3'
+gem 'wkhtmltopdf-binary'
 
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development

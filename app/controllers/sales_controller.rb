@@ -32,13 +32,13 @@ class SalesController < ApplicationController
     @account = current_account
     respond_to do |format|
       format.html
-      format.pdf do
-        pdf = SalePdf.new(@sale, @account)
-        send_data pdf.render,
-                  filename:     "sale_#{@sale.name}",
-                  type:         "application/pdf",
-                  disposition:  "inline"
-      end
+    #  format.pdf do
+    #    pdf = SalePdf.new(@sale, @account)
+    #    send_data pdf.render,
+    #              filename:     "sale_#{@sale.name}",
+    #              type:         "application/pdf",
+    #              disposition:  "inline"
+    #  end
     end
   end
 

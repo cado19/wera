@@ -15,7 +15,7 @@ module Wera
     # create a db specific dump in structure.sql file rather than schema.rb. IIRC when :sql is set rails test code loads that instead of the schema.rb
     # config.active_record.schema_format = :sql
     config.time_zone = 'Nairobi'
-    config.middleware.use PDFKit::Middleware
+    config.middleware.use PDFKit::Middleware, :print_media_type => true
 
 
     # Settings in config/environments/* take precedence over those specified here.

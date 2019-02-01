@@ -8,7 +8,6 @@
         <%= @sale.pay_type %>
       </div>
     </div>
-    <br>
 
     <div class="row">
       <div class="col-sm-2">
@@ -18,7 +17,6 @@
         <%= @sale.pay_amount %>
       </div>
     </div>
-    <br>
 
     <div class="row">
       <div class="col-sm-2">
@@ -28,7 +26,6 @@
         <%= @sale.balance %>
       </div>
     </div>
-    <br>
 
     <div class="row">
       <div class="col-sm-2">
@@ -38,7 +35,6 @@
         <%= @sale.created_at.strftime('%d %b %Y') %>
       </div>
     </div>
-    <br>
 
     <div class="row">
       <div class="col-sm-2">
@@ -49,16 +45,22 @@
       </div>
     </div>
     <br>
-    <br>
 
     <div class="container">
       <div class="col-sm-10 col-md-10">
           <%= render 'sale_items' %>
       </div>
     </div>
-
-    <%= link_to 'Complete', root_url, class: 'btn btn-primary btn-sm' %>
-    <%# link_to 'Printable receipt (PDF)', sale_url(@sale, format: 'pdf'), class: 'btn btn-success btn-sm' %>
+    <div id="sale_complete_links">
+      <%= link_to 'Complete', root_url, class: 'btn btn-primary btn-sm' %>
+      <%= link_to 'Printable receipt (PDF)',
+          sale_url(@sale, format: 'pdf'),
+          target: '_blank',
+          class: 'btn btn-success btn-sm' %>
+    </div>
+    <div id="sale_footer">
+      <p>Powered by ZiadaCloud &copy 2019</p>
+    </div>
     </p>
   </div>
 </section>

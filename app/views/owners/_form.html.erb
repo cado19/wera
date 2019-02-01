@@ -1,4 +1,4 @@
-<%= bootstrap_form_for @owner, html: {multipart: true} do |f| %>
+<%= form_for @owner, html: {multipart: true} do |f| %>
   <div id="error-message">
    <% if @owner.errors.any? %>
    	<p>Kindly rectify the following <%= pluralize(@owner.errors.count, "error") %></p>
@@ -11,23 +11,28 @@
   </div>
 
  <div class = "field">
-  <%= f.text_field :name, class: 'form-control' %><br>
+   <%= f.label :name %>
+   <%= f.text_field :name, class: 'form-control' %><br>
  </div>
 
  <div class = "field">
-  <%= f.text_field :email, class: 'form-control' %><br>
+   <%= f.label :email %>
+   <%= f.text_field :email, class: 'form-control' %><br>
  </div>
 
  <div class = "field">
-  <%= f.password_field :password, class: 'form-control' %><br>
+   <%= f.label :password %>
+   <%= f.password_field :password, class: 'form-control' %><br>
  </div>
 
  <div class = "field">
-  <%= f.password_field :password_confirmation, class: 'form-control' %><br>
+   <%= f.label :password_confirmation %>
+   <%= f.password_field :password_confirmation, class: 'form-control' %><br>
  </div>
 
  <div class="field">
-   <%= f.file_field :avatar, class: 'label-control' %>
+   <%= f.label :avatar %>
+   <%= f.file_field :avatar %>
  </div><br>
 
  <%= f.button 'Create Owner', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving Details..."} %>

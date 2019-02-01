@@ -4,8 +4,9 @@ class CreateAccounts < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :subdomain, index: true
       t.string :email
+      t.string :country
       t.string :location
-      t.string :business_type
+      
 
       t.timestamps
 

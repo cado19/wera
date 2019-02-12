@@ -56,9 +56,9 @@ class Admin::SuppliersController < Admin::BaseController
   # DELETE /suppliers/1
   # DELETE /suppliers/1.json
   def destroy
-    @supplier.destroy
+    @supplier.update_attributes(:deleted, true)
     respond_to do |format|
-      format.html { redirect_to admin_suppliers_url, notice: 'Supplier was successfully destroyed.' }
+      format.html { redirect_to admin_suppliers_url, notice: 'Supplier successfully deleted.' }
       format.json { head :no_content }
     end
   end

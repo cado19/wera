@@ -9,7 +9,7 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def show
-    @products = @category.products
+    @products = @category.products.paginate(:page => params[:page])
   end
 
   def new
@@ -39,14 +39,20 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def destroy
-    @category.destroy
+    @category.update_attributes(:deleted, true)
     redirect_to admin_categories_url
-    flash[:notice] = 'Category was successfully destroyed.'
+    flash[:notice] = 'Category was successfully deleted.'
   end
 
   def search
     @search = Category.ransack(params[:q])
     @categories = @search.result.paginate(:page => params[:page])
+  end
+
+  def deleted
+    @search = Category.deleted.ransack(params[:q])
+    @categories = @search.result.paginate(:page => params[:page])
+    render 'index'
   end
 
   private

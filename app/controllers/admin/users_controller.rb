@@ -16,7 +16,7 @@ class Admin::UsersController < Admin::BaseController
 		@user = User.new(user_params)
 		if @user.save
 			redirect_to admin_users_url
-			flash[:notice] = "User Successfully Created"
+			flash[:notice] = "User successfully Created"
 		else
 			render 'new'
 		end
@@ -40,9 +40,9 @@ class Admin::UsersController < Admin::BaseController
 	end
 
 	def destroy
-		@user.destroy
-	    redirect_to admin_users_url
-	    flash[:success] = "Users Has Been Successfully Removed"
+		@user.update_attributes(:deleted, true)
+    redirect_to admin_users_url
+    flash[:success] = "User successfully deleted"
 	end
 
 	private

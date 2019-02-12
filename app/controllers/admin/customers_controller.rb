@@ -12,7 +12,7 @@ class Admin::CustomersController < Admin::BaseController
 
   def destroy
     @customer = Customer.find(params[:id])
-    @customer.destroy
+    @customer.update_attributes(:deleted, true)
     redirect_to admin_customers_url
   end
 

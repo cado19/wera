@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 	constraints(SubdomainPresent) do
 		################## #Admin Routes ##################################################
   		namespace :admin do
+
+					get 'categories/deleted', to: 'categories#deleted', as: 'deleted_categories'
   		    resources :categories do
             collection do
               match 'search' => 'categories#search', via: [:get, :post], as: :search
@@ -47,7 +49,10 @@ Rails.application.routes.draw do
               match 'search' => 'suppliers#search', via: [:get, :post], as: :search
             end
           end
+
+					get 'purchases/deleted', to: 'purchases#deleted', as: 'deleted_purchases'
   		    resources :purchases
+
           resources :users
           get '/my_account', to: 'dashboard#show'
           get 'highest_selling/highest_selling'

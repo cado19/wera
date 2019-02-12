@@ -19,11 +19,6 @@ class ProductsController < ApplicationController
     render 'index'
   end
 
-  def destroy
-  	@product.destroy
-  	flash[:notice] = "Product Successfully Deleted"
-  end
-
   private
 
   def find_product

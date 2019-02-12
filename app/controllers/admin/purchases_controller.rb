@@ -4,7 +4,7 @@ class Admin::PurchasesController < Admin::BaseController
   before_action :authenticate
   before_action :find_purchase, only: [:show, :edit, :update, :destroy]
   def index
-    @search = Purchase.ransack(params[:q])
+    @search = Purchase.notDeleted.ransack(params[:q])
     @purchases = @search.result.order("created_at desc").paginate(:page => params[:page])
   end
 
@@ -14,7 +14,7 @@ class Admin::PurchasesController < Admin::BaseController
   #GET suppliers/new
   def new
     @purchase = Purchase.new
-    @products = Product.where(stockable: true)
+    @products = Product.notDeleted
     #@suppliers = Supplier.all
   end
 
@@ -25,7 +25,7 @@ class Admin::PurchasesController < Admin::BaseController
       @purchase.owner_id = current_owner.id
     elsif current_user
       @purchase.user_id = current_user.id
-    end    
+    end
     if @purchase.save
       flash[:notice] = "You Have successfully purchased #{@purchase.quantity} #{@purchase.product.name}s"
       redirect_to admin_purchase_url(@purchase)
@@ -47,9 +47,16 @@ class Admin::PurchasesController < Admin::BaseController
   end
 
   def destroy
-    @purchase.destroy
+    #product = Product.find(params[:product_id])
+    #@purchase.remove_product_stock
+    @purchase.update_attribute(:deleted, true)
     redirect_to admin_purchases_url
-    flash[:success] = "Purchase Has Been Successfully Removed"
+    flash[:success] = "Purchase successfully deleted"
+  end
+
+  def deleted
+    @search = Purchase.deleted.ransack(params[:q])
+    @purchases = @search.result.paginate(:page => params[:page])
   end
 
   private

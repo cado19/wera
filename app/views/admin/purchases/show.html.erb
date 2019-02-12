@@ -21,10 +21,10 @@
             <strong><h5>Purchased by: </h5></strong>
           </div>
           <div class="col-sm-10 col-md-10">
-            <% if @purchase.user_id %>
-              <h5><%= @purchase.user %></h5>
-            <% elsif @purchase.owner_id %>
-              <h5><%= @purchase.owner_id %></h5>
+            <% if @purchase.user %>
+              <h5><%= @purchase.user.name %></h5>
+            <% elsif @purchase.owner %>
+              <h5><%= @purchase.owner.name %></h5>
             <% else %>
               <h5>Deleted User</h5>
             <% end %>

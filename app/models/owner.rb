@@ -1,6 +1,7 @@
 class Owner < ApplicationRecord
   belongs_to :account
   has_many :sales
+  has_many :purchases
 
   has_secure_password
 

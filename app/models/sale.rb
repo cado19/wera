@@ -74,10 +74,8 @@ class Sale < ApplicationRecord
   def update_inventory
     sale_items.each do |sale_item|
       product = sale_item.product
-      unless !product.stockable
-        product.quantity -= sale_item.quantity
-        product.save
-      end
+      product.quantity -= sale_item.quantity
+      product.save
     end
   end
 
@@ -95,5 +93,13 @@ class Sale < ApplicationRecord
     if self.pay_amount < self.total_price
       errors.add(:base, "Insufficient payment")
     end
+  end
+
+  def self.deleted
+    where(deleted: true)
+  end
+
+  def self.notDeleted
+    where(deleted: false)
   end
 end

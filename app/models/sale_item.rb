@@ -21,7 +21,7 @@ class SaleItem < ApplicationRecord
 
   def adequate_product
     product = self.product
-    if product.stockable && (self.quantity > product.quantity)
+    if (self.quantity > product.quantity)
       errors.add(:product, "is out of stock")
     end
   end

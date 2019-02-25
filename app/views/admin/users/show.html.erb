@@ -20,6 +20,10 @@
       		Sale count: <%= @user.sales.count %>
       	</p>
 
+        <p>
+          Deleted: <%= @user.deleted %>
+        </p>
+
       	<p>
       		Joined on <%= @user.created_at.strftime('%d %b %Y') %>
       	</p>
@@ -30,4 +34,7 @@
 </section>
 
 <%= link_to 'Edit', edit_user_url(@user), class: 'btn btn-sm btn-default' %> |
-<%= link_to 'Back', admin_users_url, class: 'btn btn-sm btn-cancel' %>
+<%= link_to 'Delete',
+    admin_user_url(@user),
+    method: :delete,
+    data: {confirm: 'Are you sure?'}  %>

@@ -53,6 +53,7 @@ Rails.application.routes.draw do
 					get 'purchases/deleted', to: 'purchases#deleted', as: 'deleted_purchases'
   		    resources :purchases
 
+					get 'users/deleted', to: 'users#deleted', as: 'deleted_users'
           resources :users
           get '/my_account', to: 'dashboard#show'
           get 'highest_selling/highest_selling'

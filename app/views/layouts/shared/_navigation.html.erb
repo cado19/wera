@@ -22,22 +22,21 @@
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="userInfo" id="navbarDropdown">
               <%= current_user.name %>
-              <div class="dropdown-menu" aria-labelledby="userInfo">
-                <%= link_to 'Admin', admin_root_url %>
-                <%= link_to 'Profile', user_url(current_user), class: 'dropdown-item' %>
-                <%= link_to 'Logout', logout_url, method: :delete, class: 'dropdown-item' %>
-              </div>
             </a>
+            <div class="dropdown-menu" aria-labelledby="userInfo">
+              <%= link_to 'Profile', user_url(current_user), class: 'dropdown-item' %>
+              <%= link_to 'Logout', logout_url, method: :delete, class: 'dropdown-item' %>
+            </div>
           </li>
         <% elsif owner_logged_in? %>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="userInfo">
               <%= current_owner.name %>
+            </a>
               <div class="dropdown-menu" aria-labelledby="userInfo">
                 <%= link_to 'Admin', admin_root_url, class: 'dropdown-item' %>
                 <%= link_to 'Logout', logout_url, method: :delete, class: 'dropdown-item' %>
               </div>
-            </a>
           </li>
         <% end %>
       </ul>

@@ -3,7 +3,7 @@ class Admin::UsersController < Admin::BaseController
 	before_action :find_user, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate
 	def index
-		@search = User.ransack(params[:q])
+		@search = User.notDeleted.ransack(params[:q])
 		@users = @search.result.order("name desc").paginate(page: params[:page])
 	end
 
@@ -40,9 +40,14 @@ class Admin::UsersController < Admin::BaseController
 	end
 
 	def destroy
-		@user.update_attributes(:deleted, true)
+		@user.update_attribute(:deleted, true)
     redirect_to admin_users_url
     flash[:success] = "User successfully deleted"
+	end
+
+	def deleted
+			@search = User.deleted.ransack(params[:q])
+			@users = @search.result.order("name desc").paginate(page: params[:page])
 	end
 
 	private
@@ -52,6 +57,6 @@ class Admin::UsersController < Admin::BaseController
 		end
 
 		def user_params
-			params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar)
+			params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar, :role_id)
 		end
 end

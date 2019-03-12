@@ -52,7 +52,7 @@ class Admin::CategoriesController < Admin::BaseController
   def deleted
     @search = Category.deleted.ransack(params[:q])
     @categories = @search.result.paginate(:page => params[:page])
-    render 'index'
+    #render 'index'
   end
 
   private

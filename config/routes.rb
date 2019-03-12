@@ -38,6 +38,7 @@ Rails.application.routes.draw do
           end
 					get 'products/available', to: 'products#available', as: 'available_products'
 					get 'products/unavailable', to: 'products#unavailable', as: 'unavailable_products'
+					get 'products/deleted', to: 'products#deleted', as: 'deleted_products'
   		    resources :products do
             collection do
               match 'search' => 'products#search', via: [:get, :post], as: :search

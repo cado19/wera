@@ -1,0 +1,47 @@
+<% title "Ziada | Products - In Stock" %>
+<section class="content-header">
+  <h3 class="lead" align="center">Products in stock</h3>
+</section>
+<section class="content">
+  <div class="box box-primary">
+    <div class="box box-body">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <%= link_to 'All Products', admin_products_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'New Product', new_admin_product_path, class: 'nav-link' %>
+        </li>
+      </ul>
+      <br>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <%= link_to 'All Products', admin_products_url, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Out of stock', admin_unavailable_products_url, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Deleted products', admin_deleted_products_url, class: 'nav-link active' %>
+        </li>
+      </ul>
+
+      <table class="table table-responsive-sm" id="myTable">
+        <thead>
+          <th><%= sort_link(@search, :name) %></th>
+          <th><%= sort_link(@search, :category) %></th>
+          <th><%= sort_link(@search, :selling_price) %></th>
+        </thead>
+        <tbody>
+          <% @products.each do |product| %>
+          <tr>
+            <td><%= link_to product.name, admin_product_url(product) %></td>
+            <td><%= product.category.name %></td>
+            <td><%= product.selling_price %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

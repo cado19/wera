@@ -54,14 +54,20 @@ class Admin::ProductsController < Admin::BaseController
   def available
     @search = Product.available.ransack(params[:q])
     @products = @search.result.order("name desc").paginate(:page => params[:page])
-    render 'index'
+    #render 'index'
   end
 
   #out of stock products
   def unavailable
     @search = Product.unavailable.ransack(params[:q])
     @products = @search.result.order("name desc").paginate(:page => params[:page])
-    render 'index'
+    #render 'index'
+  end
+
+  def deleted
+    @search = Product.deleted.ransack(params[:q])
+    @products = @search.result.order("name desc").paginate(:page => params[:page])
+    #render 'index'
   end
 
   #search

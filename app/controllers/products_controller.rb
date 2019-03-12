@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
   def available
     @search = Product.available.ransack(params[:q])
     @products = @search.result.order("name desc").paginate(page: params[:page])
-    render 'index'
+    #render 'index'
   end
 
   private

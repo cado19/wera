@@ -8,7 +8,7 @@
 
 
 
-roles = Role.create([{name: 'Admin'}, {name: 'User'}])
+#roles = Role.create([{name: 'Admin'}, {name: 'User'}])
 
 #maintenance_user = MaintenanceUser.create(name: "Richie", email: "mryoungrichie@gmail.com", password: "password", password_confirmation: "password")
 #maintenance_user = MaintenanceUser.create(name: "Jialid", email: "jialidkhaliq@outlook.com", password: "1904G$00", password_confirmation: "1904G$00")

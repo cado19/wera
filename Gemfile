@@ -37,7 +37,6 @@ gem 'will_paginate'
 gem "font-awesome-rails"
 gem 'ransack'
 gem 'bootstrap', '~> 4.2.1'
-gem 'jquery-rails'
 gem 'webpacker', '~> 3.2'
 gem 'cancancan', '~> 2.0'
 gem "paperclip", "~> 6.0.0"

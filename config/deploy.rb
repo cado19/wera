@@ -44,7 +44,7 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 # set :ssh_options, verify_host_key: :secure
 
 # before "deploy:assets:precompile", "deploy:yarn_install"
-# before "deploy:assets:precompile", "deploy:add_jquery"
+ before "deploy:assets:precompile", "deploy:add_jquery"
 # after "deploy:migrate", "deploy:seed"
 
 namespace :deploy do

@@ -46,6 +46,7 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 # before "deploy:assets:precompile", "deploy:yarn_install"
  before "deploy:assets:precompile", "deploy:add_jquery"
  before "deploy:migrate", "deploy:down"
+ after "deploy:down", "deploy:product_migrate"
 # after "deploy:migrate", "deploy:seed"
 
 namespace :deploy do
@@ -72,6 +73,15 @@ namespace :deploy do
     on roles(:all) do
       within current_path do
         execute :bundle, :exec, 'rake', 'db:rollback', 'VERSION=20180323121449', 'RAILS_ENV=production'
+      end
+    end
+  end
+
+  desc "migrate products"
+  task :product_migrate do
+    on roles(:all) do
+      within current_path do
+        execute :bundle, :exec, 'rake', 'db:migrate', 'VERSION=20180323121449', 'RAILS_ENV=production'
       end
     end
   end

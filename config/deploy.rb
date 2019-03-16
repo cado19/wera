@@ -45,6 +45,7 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 
 # before "deploy:assets:precompile", "deploy:yarn_install"
  before "deploy:assets:precompile", "deploy:add_jquery"
+ before "deploy:migrate", "deploy:down"
 # after "deploy:migrate", "deploy:seed"
 
 namespace :deploy do
@@ -62,6 +63,15 @@ namespace :deploy do
     on roles(:all) do
       within current_path do
         execute :bundle, :exec, 'rails', 'db:seed', 'RAILS_ENV=production'
+      end
+    end
+  end
+
+  desc "revert the existing database migrations"
+  task :down do
+    on roles(:all) do
+      within current_path do
+        execute :bundle, :exec, 'rails', 'db:migrate:down', 'STEP=26', 'RAILS_ENV=production'
       end
     end
   end

@@ -71,7 +71,7 @@ namespace :deploy do
   task :down do
     on roles(:all) do
       within current_path do
-        execute :bundle, :exec, 'rails', 'db:migrate:down', 'STEP=26', 'RAILS_ENV=production'
+        execute :bundle, :exec, 'rails', 'db:rollback', 'STEP=26', 'RAILS_ENV=production'
       end
     end
   end

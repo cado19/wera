@@ -67,11 +67,11 @@ namespace :deploy do
     end
   end
 
-  desc "revert the existing database migrations"
+  desc "rollback the products migration"
   task :down do
     on roles(:all) do
       within current_path do
-        execute :bundle, :exec, 'rake', 'db:rollback', 'STEP=26', 'RAILS_ENV=production'
+        execute :bundle, :exec, 'rake', 'db:rollback', 'VERSION=20180323121449', 'RAILS_ENV=production'
       end
     end
   end

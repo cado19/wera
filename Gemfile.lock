@@ -112,6 +112,9 @@ GEM
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jquery-turbolinks (2.1.0)
+      railties (>= 3.1.0)
+      turbolinks
     libv8 (6.7.288.46.1)
     loofah (2.2.3)
       crass (~> 1.0.2)
@@ -292,6 +295,7 @@ DEPENDENCIES
   email_validator
   font-awesome-rails
   jbuilder (~> 2.5)
+  jquery-turbolinks
   mail_form
   mini_racer
   paperclip (~> 6.0.0)

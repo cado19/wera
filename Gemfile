@@ -42,6 +42,7 @@ gem 'cancancan', '~> 2.0'
 gem "paperclip", "~> 6.0.0"
 gem 'prawn'
 gem 'prawn-table'
+gem 'jquery-turbolinks'
 gem 'email_validator'
 gem 'mail_form'
 gem "bootstrap_form", "~> 2.7"

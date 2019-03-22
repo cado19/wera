@@ -45,7 +45,7 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 
 # before "deploy:assets:precompile", "deploy:yarn_install"
  before "deploy:assets:precompile", "deploy:add_jquery"
- before "deploy:migrate", "deploy:down"
+# before "deploy:migrate", "deploy:down"
 # after "deploy:migrate", "deploy:seed"
 
 namespace :deploy do

@@ -3,7 +3,7 @@ class Admin::CustomersController < Admin::BaseController
   before_action :authenticate
   def index
     @search = Customer.ransack(params[:q])
-    @customers = @search.result.order("created_at desc").paginate(page: params[:page])
+    @customers = @search.result.order("created_at desc").paginate(page: params[:page],per_page: 10)
   end
 
   def show

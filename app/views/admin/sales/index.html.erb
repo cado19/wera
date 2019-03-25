@@ -28,7 +28,12 @@
           <% end %>
         </tbody>
       </table>
-      <%= will_paginate @sales %>
+      <div class="apple_pagination">
+        <div class="page_info">
+          <%= page_entries_info @sales %>
+        </div>
+        <%= will_paginate @sales, container: false %>
+      </div>
     </div>
   </div>
 </section>

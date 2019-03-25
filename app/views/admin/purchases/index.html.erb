@@ -45,7 +45,12 @@
           <% end %>
         </tbody>
       </table>
-      <%= will_paginate @purchases %>
+      <div class="apple_pagination">
+        <div class="page_info">
+          <%= page_entries_info @purchases %>
+        </div>
+        <%= will_paginate @purchases, container: false %>
+      </div>
     </div>
   </div>
 </section>

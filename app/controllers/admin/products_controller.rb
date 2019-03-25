@@ -5,7 +5,7 @@ class Admin::ProductsController < Admin::BaseController
 
   def index
     @search = Product.ransack(params[:q])
-    @products = @search.result.order("name desc").paginate(:page => params[:page])
+    @products = @search.result.order("name desc").paginate(page: params[:page], per_page: 10)
   end
 
   def show
@@ -53,27 +53,27 @@ class Admin::ProductsController < Admin::BaseController
   #available products
   def available
     @search = Product.available.ransack(params[:q])
-    @products = @search.result.order("name desc").paginate(:page => params[:page])
+    @products = @search.result.order("name desc").paginate(page: params[:page], per_page: 10)
     #render 'index'
   end
 
   #out of stock products
   def unavailable
     @search = Product.unavailable.ransack(params[:q])
-    @products = @search.result.order("name desc").paginate(:page => params[:page])
+    @products = @search.result.order("name desc").paginate(page: params[:page], per_page: 10)
     #render 'index'
   end
 
   def deleted
     @search = Product.deleted.ransack(params[:q])
-    @products = @search.result.order("name desc").paginate(:page => params[:page])
+    @products = @search.result.order("name desc").paginate(page: params[:page], per_page: 10)
     #render 'index'
   end
 
   #search
   def search
     @search = Product.ransack(params[:q])
-    @products = @search.result.paginate(:page => params[:page])
+    @products = @search.result.paginate(page: params[:page], per_page: 10)
     render 'index'
   end
 

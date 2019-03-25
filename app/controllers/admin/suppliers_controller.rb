@@ -6,7 +6,7 @@ class Admin::SuppliersController < Admin::BaseController
   # GET /suppliers.json
   def index
     @search = Supplier.search(params[:q])
-    @suppliers = @search.result.paginate(page: params[:page])
+    @suppliers = @search.result.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /suppliers/1

@@ -18,11 +18,8 @@
       <div class="row">
         <%= link_to 'Deleted categories', admin_deleted_categories_url, class: 'btn btn-link' %>
       </div>
-      <div class="pull-right form-group">
-          <%= text_field_tag :search, "", class: 'form-control searchField', placeholder: 'Search category..' %>
-      </div>
 
-      <table class="table table-responsive-sm" id="myTable">
+      <table class="table table-responsive-sm" id="dttb">
         <thead>
           <tr>
             <th><%= sort_link(@search, :name) %></th>

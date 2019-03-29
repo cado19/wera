@@ -16,6 +16,14 @@ module ApplicationHelper
     Sale.count
   end
 
+  def number_of_available_products
+    Product.inStock.notDeleted.count
+  end
+
+  def number_of_out_of_stock_products
+    Product.unavailable.count
+  end
+
 
   def number_of_users
     User.count

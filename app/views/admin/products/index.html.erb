@@ -33,9 +33,9 @@
       <table class="table table-responsive-sm" id="dttb">
         <thead>
           <tr>
-            <th><%= sort_link(@search, :name) %></th>
-            <th><%= sort_link(@search, :purchase_price) %></th>
-            <th><%= sort_link(@search, :selling_price) %></th>
+            <th>Name</th>
+            <th>Purchase price</th>
+            <th>Selling price</th>
             <th>Category</th>
           </tr>
         </thead>
@@ -51,13 +51,6 @@
           <% end %>
         </tbody>
       </table>
-      <div class="apple_pagination">
-        <div class="page_info">
-          <%= page_entries_info @products %>
-        </div>
-        <%= will_paginate @products, container: false %>
-      </div>
-
     </div>
   </div>
 </section>

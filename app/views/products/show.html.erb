@@ -2,35 +2,18 @@
 <% title "Ziada | Products - #{@product.name}" %>
 <h2 align="center">Product Specifics</h2><br>
 
-<div class="container text-center">
-  <div class="row">      
-    <p>
-      <strong>Name:</strong>
-      <%= @product.name %>
-    </p>
+<div class="container">
+  <div class="row">
+    <div class="card" style="width: 18rem">
+      <h5 class="card-title"><%= @product.name %></h5>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Purchase price:</strong> <%= @product.purchase_price %></li>
+        <li class="list-group-item"><strong>Selling price:</strong> <%= @product.selling_price %></li>
+        <li class="list-group-item"><strong>Category:</strong> <%= @product.category.name %></li>
+        <li class="list-group-item"><strong>Manufacturer:</strong> <%= @product.manufacturer %></li>
+      </ul>
+    </div>
+  </div> <!-- /row    -->
+  <%= link_to 'Back', products_path, class: 'btn btn-info' %>
 
-    <p>
-      <strong>Purchase price:</strong>
-      <%= @product.purchase_price %>
-    </p>
-
-    <p>
-      <strong>Selling price:</strong>
-      <%= @product.selling_price %>
-    </p>
-
-    <p>
-      <strong>Category:</strong>
-      <%= @product.category.name %>
-    </p> 
-
-
-    <p>
-      <strong>Manufacturer:</strong>
-      <%= @product.manufacturer %>
-    </p>
-
-    <%= link_to 'Back', products_path, class: 'btn btn-info' %>   
-  </div> <!-- /row    -->  
-</div> <!-- /container    -->  
-
+</div> <!-- /container    -->

@@ -4,12 +4,11 @@ class Admin::CategoriesController < Admin::BaseController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
-    @search = Category.ransack(params[:q])
-    @categories = @search.result.order("created_at desc").paginate(page: params[:page], per_page: 10)
+    @categories = Category.all
   end
 
   def show
-    @products = @category.products.paginate(:page => params[:page])
+    @products = @category.products.all
   end
 
   def new

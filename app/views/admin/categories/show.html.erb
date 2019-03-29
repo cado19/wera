@@ -14,24 +14,16 @@
       			<th>Name</th>
       			<th>Purchase Price</th>
       			<th>Sale Price</th>
-            <th>Quantity</th>
       			<th></th>
       		</thead>
       		<tbody>
       			<% @products.each do |product| %>
               <tr>
-                <td><%= link_to product.name, product %></td>
+                <td><%= link_to product.name, admin_product_url(product) %></td>
         				<td><%= product.purchase_price %></td>
         				<td><%= product.selling_price %></td>
-        				<td><%= product.quantity %></td>
               </tr>
       			<% end %>
-            <div class="apple_pagination">
-              <div class="page_info">
-                <%= page_entries_info @products %>
-              </div>
-              <%= will_paginate @products, container: false %>
-            </div>
       		</tbody>
       	</table>
 

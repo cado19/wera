@@ -4,8 +4,9 @@ class Admin::ProductsController < Admin::BaseController
   #before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @search = Product.ransack(params[:q])
-    @products = @search.result.order("name desc").paginate(page: params[:page], per_page: 10)
+    #@search = Product.ransack(params[:q])
+    #@products = @search.result.order("name desc")
+    @products = Product.all
   end
 
   def show
@@ -89,6 +90,3 @@ class Admin::ProductsController < Admin::BaseController
       .permit(:name, :purchase_price, :selling_price, :description, :manufacturer, :category_id, :stockable, :supplier_id)
     end
 end
-
-#, :image, {supplier_ids: []},
-                   # details_attributes: Detail.attribute_names.map(&:to_sym).push(:_destroy)

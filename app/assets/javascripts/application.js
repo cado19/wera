@@ -16,5 +16,4 @@
 //= require popper
 //= require bootstrap
 //= require datatables
-//= require turbolinks
 //= require_tree .

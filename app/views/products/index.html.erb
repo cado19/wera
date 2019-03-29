@@ -1,14 +1,8 @@
 <% provide(:products, "active") %>
 <h3 align="center">Products</h3>
 <div class="container">
-	<div class="pb-5">
-		<div class="pull-right">
-			<%= text_field_tag :search, "", class: 'form-control searchField', placeholder: 'Search product..' %>
-		</div>
-	</div>
-
 	<div class="text-center">
-		<table class="table table-responsive-md" id="myTable">
+		<table class="table table-responsive-md" id="dttb">
 			<thead class="thead-light">
 				<tr>
 					<th><%= sort_link(@search, :name) %></th>
@@ -33,5 +27,5 @@
 			</tbody>
 		</table>
 	</div>
-	<%= will_paginate @products %>
+	<%# will_paginate @products %>
 </div>

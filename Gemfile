@@ -36,25 +36,49 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'will_paginate'
 gem "font-awesome-rails"
 gem 'ransack'
+#bootstrap
 gem 'bootstrap', '~> 4.2.1'
+
+#webpacker
 gem 'webpacker', '~> 3.2'
+
+#cancan
 gem 'cancancan', '~> 2.0'
+
+#paperclip
 gem "paperclip", "~> 6.0.0"
+
+#prawn
 gem 'prawn'
 gem 'prawn-table'
+
 gem 'jquery-turbolinks'
 gem 'email_validator'
 gem 'mail_form'
 gem "bootstrap_form", "~> 2.7"
 gem 'capistrano-rbenv'
+
+#passenger server
 gem 'passenger', '~> 5.0', '>= 5.0.30'
+
 gem 'railties', '~> 5.0', '>= 5.0.0.1'
+
+#sitemap for analytics
 gem 'sitemap_generator'
+
+#by star
 gem 'by_star', git: "git://github.com/radar/by_star"
+
+
 gem 'pdfkit', '~> 0.8.2'
 gem 'render_anywhere', require: false
 gem 'responders', '~> 2.3'
+
+#webkit html to pdf
 gem 'wkhtmltopdf-binary'
+
+#jquery datatables
+gem 'jquery-datatables'
 
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development

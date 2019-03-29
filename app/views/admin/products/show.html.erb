@@ -43,6 +43,7 @@
               <%= @product.supplier.name %>
             </p>
         <br>
+          <%= link_to 'Back to products', admin_products_url, class: 'btn btn-primary btn-sm' %> |
           <%= link_to 'Edit', edit_admin_product_path(@product), class: 'btn btn-default btn-sm' %> |
           <%= link_to 'Delete', admin_product_url(@product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
       </div>

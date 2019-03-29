@@ -30,10 +30,13 @@
       		</tbody>
       	</table>
 
-
+      <%= link_to 'Back to categories', admin_categories_url, class: 'btn btn-primary btn-sm' %> |
       <%= link_to 'Edit', edit_admin_category_url(@category), class: 'btn btn-sm btn-default' %> |
-      <%= link_to 'Delete', admin_category_url(@category), method: :delete, data: {confirm: 'Are You Sure?'},
-          class: 'btn btn-sm btn-danger'%>
+      <%= link_to 'Delete',
+          admin_category_url(@category),
+          method: :delete,
+          class: 'btn btn-sm btn-danger',
+          data: {confirm: 'Are You Sure?'} %>
 
       </div>
     </div>

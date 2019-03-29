@@ -16,11 +16,13 @@
         <%= @supplier.email %>
       </p>
 
-      <%= link_to 'Edit', edit_admin_supplier_path(@supplier) %> |
-      <%= link_to 'Delete', admin_supplier_url(@supplier), method: :delete, data: { confirm: 'Are you sure?' } %> |
-      <%= link_to 'Back', admin_suppliers_path %>
+      <%= link_to 'Back to purchases', admin_suppliers_path, class: 'btn btn-sm btn-primary' %> |
+      <%= link_to 'Edit', edit_admin_supplier_path(@supplier), class: 'btn btn-sm btn-default' %> |
+      <%= link_to 'Delete',
+          admin_supplier_url(@supplier),
+          method: :delete,
+          class: 'btn btn-sm btn-danger',
+          data: { confirm: 'Are you sure?' } %>
     </div>
   </div>
 </section>
-
-
